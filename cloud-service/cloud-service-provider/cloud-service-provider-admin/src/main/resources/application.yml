@@ -12,36 +12,14 @@ dubbo:
 
 spring:
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/dcy-cloud?nullNamePatternMatchesAll=true&useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=UTC
     username: root
     password: root
-    druid:
-      initial-size: 5
-      min-idle: 5
-      maxActive: 20
-      maxWait: 60000
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT x
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 20
-      filters: stat,wall,log4j
-      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=5000
-      web-stat-filter:
-        enabled: true
-        url-pattern: "/*"
-        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
-      stat-view-servlet:
-        url-pattern: "/druid/*"
-        reset-enable: false
-        login-username: admin
-        login-password: 123456
-
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   type-aliases-package: com.tsq.admin.api.model

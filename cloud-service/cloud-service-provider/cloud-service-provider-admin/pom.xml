@@ -21,10 +21,5 @@
             <groupId>com.dcy</groupId>
             <artifactId>dcy-spring-dubbo-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.dcy</groupId>
-            <artifactId>dcy-db-spring-boot-starter</artifactId>
-        </dependency>
-
     </dependencies>
 </project>

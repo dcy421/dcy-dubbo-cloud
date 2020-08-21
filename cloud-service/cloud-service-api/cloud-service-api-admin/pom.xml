@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.dcy</groupId>
-            <artifactId>dcy-db-base-spring-boot-starter</artifactId>
+            <artifactId>dcy-db-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>
