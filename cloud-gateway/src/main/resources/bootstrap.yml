@@ -35,9 +35,7 @@ ignored: |
   /**/actuator/** , /**/actuator/**/** ,
   /v2/api-docs/**, /swagger-ui.html, /swagger-resources/**, /webjars/** ,
   /**/v2/api-docs/**, /**/swagger-ui.html, /**/swagger-resources/**, /**/webjars/**,
-  /**/druid/**, /**/favicon.ico, /**/prometheus,
-  /auth-biz/oauth/**,/auth-center/getUserInfo,/auth-center/getOAuthDetails,
-  /admin-center/dict/getDictListByType,/admin-center/dict/getDictTreeListByGroupType,
-  /file-center/file/**,
-  /monitor-center/**,
-  /admin-center/**
+  /**/favicon.ico, /**/prometheus,
+  /auth-biz/oauth/**,/auth-biz/getUserInfo,/auth-biz/getOAuthDetails,
+  /admin-biz/dict/getDictListByType,/admin-biz/dict/getDictTreeListByGroupType,
+  /admin-biz/**

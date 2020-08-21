@@ -1,13 +1,11 @@
 package com.dcy.service.apiadmin.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.time.LocalDateTime;
-import java.io.Serializable;
-
-import com.dcy.basedb.model.BaseModel;
+import com.dcy.db.base.model.BaseModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
 import java.io.Serializable;
 
 /**
