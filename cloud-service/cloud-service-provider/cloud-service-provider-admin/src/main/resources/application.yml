@@ -22,7 +22,7 @@ spring:
       maximum-pool-size: 10
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: com.tsq.admin.api.model
+  type-aliases-package: com.dcy.service.apiadmin.model
   configuration:
     call-setters-on-nulls: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
