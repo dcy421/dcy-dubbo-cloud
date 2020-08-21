@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.dcy.service.apiadmin.model.Role">
-        <id column="role_id" property="roleId" />
+        <id column="id" property="id" />
         <result column="role_name" property="roleName" />
         <result column="role_key" property="roleKey" />
         <result column="role_status" property="roleStatus" />
@@ -18,11 +18,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        role_id, role_name, role_key, role_status, create_by, create_date, update_by, update_date, del_flag, remark
+        id, role_name, role_key, role_status, create_by, create_date, update_by, update_date, del_flag, remark
     </sql>
 
-    <!-- 通用查询结果列 别名 -->
-    <sql id="Base_Column_List_Alias">
-        router.role_id AS roleId,router.role_name AS roleName,router.role_key AS roleKey,router.role_status AS roleStatus,router.create_by AS createBy,router.create_date AS createDate,router.update_by AS updateBy,router.update_date AS updateDate,router.del_flag AS delFlag,router.remark
-    </sql>
 </mapper>

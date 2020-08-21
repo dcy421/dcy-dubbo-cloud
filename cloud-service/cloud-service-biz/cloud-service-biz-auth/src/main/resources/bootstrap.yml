@@ -1,0 +1,15 @@
+server:
+  port: 7777
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: auth-biz
+  cloud:
+    nacos:
+      server-addr: 192.168.109.132:8848
+
+dubbo:
+  registry:
+    address: nacos://${spring.cloud.nacos.server-addr}
+

@@ -13,6 +13,10 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * <p>
  * 用户表 服务实现类
@@ -44,5 +48,15 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
             return userInfo;
         }
         return null;
+    }
+
+    @Override
+    public UserInfo getUserInfoByUsername(String username) {
+        return super.getOne(Wrappers.<UserInfo>lambdaQuery().eq(UserInfo::getUsername, username));
+    }
+
+    @Override
+    public List<Map<String, Object>> getResourcesByUserId(String userId) {
+        return baseMapper.getResourcesByUserId(userId);
     }
 }

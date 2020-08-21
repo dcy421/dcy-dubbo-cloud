@@ -10,7 +10,7 @@
         <result column="res_name" property="resName" />
         <result column="res_code" property="resCode" />
         <result column="res_path" property="resPath" />
-        <result column="http_methed" property="httpMethed" />
+        <result column="http_method" property="httpMethod" />
         <result column="res_status" property="resStatus" />
         <result column="res_type" property="resType" />
         <result column="res_sort" property="resSort" />
@@ -24,11 +24,6 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, parent_id, parent_ids, res_name, res_code, res_path, http_methed, res_status, res_type, res_sort, create_by, create_date, update_by, update_date, del_flag, remark
-    </sql>
-
-    <!-- 通用查询结果列 别名 -->
-    <sql id="Base_Column_List_Alias">
-        router.id,router.parent_id AS parentId,router.parent_ids AS parentIds,router.res_name AS resName,router.res_code AS resCode,router.res_path AS resPath,router.http_methed AS httpMethed,router.res_status AS resStatus,router.res_type AS resType,router.res_sort AS resSort,router.create_by AS createBy,router.create_date AS createDate,router.update_by AS updateBy,router.update_date AS updateDate,router.del_flag AS delFlag,router.remark
+        id, parent_id, parent_ids, res_name, res_code, res_path, http_method, res_status, res_type, res_sort, create_by, create_date, update_by, update_date, del_flag, remark
     </sql>
 </mapper>

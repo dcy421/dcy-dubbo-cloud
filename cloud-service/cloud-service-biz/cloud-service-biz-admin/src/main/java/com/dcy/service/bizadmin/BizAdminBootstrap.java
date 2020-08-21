@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @Date: 2020/7/29 8:44
  */
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-@ComponentScan("com.dcy.service.bizadmin")
+@ComponentScan("com.dcy")
 public class BizAdminBootstrap {
 
     public static void main(String[] args) {

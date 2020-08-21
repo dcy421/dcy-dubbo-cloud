@@ -5,6 +5,9 @@ spring:
     name: gateway
   main:
     allow-bean-definition-overriding: true
+  redis:
+    host: 192.168.0.2
+    port: 6379
   cloud:
     nacos:
       server-addr: 192.168.109.132:8848
@@ -19,3 +22,22 @@ spring:
             - Path=/admin-biz/**
           filters:
             - StripPrefix=1
+        - id: auth-biz
+          uri: lb://auth-biz
+          predicates:
+            - Path=/auth-biz/**
+          filters:
+            - StripPrefix=1
+
+
+
+ignored: |
+  /**/actuator/** , /**/actuator/**/** ,
+  /v2/api-docs/**, /swagger-ui.html, /swagger-resources/**, /webjars/** ,
+  /**/v2/api-docs/**, /**/swagger-ui.html, /**/swagger-resources/**, /**/webjars/**,
+  /**/druid/**, /**/favicon.ico, /**/prometheus,
+  /auth-biz/oauth/**,/auth-center/getUserInfo,/auth-center/getOAuthDetails,
+  /admin-center/dict/getDictListByType,/admin-center/dict/getDictTreeListByGroupType,
+  /file-center/file/**,
+  /monitor-center/**,
+  /admin-center/**

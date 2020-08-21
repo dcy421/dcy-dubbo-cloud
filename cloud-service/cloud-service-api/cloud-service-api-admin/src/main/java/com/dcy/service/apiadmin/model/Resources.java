@@ -60,7 +60,7 @@ public class Resources extends BaseModel implements Serializable {
     /**
      * 请求方式
      */
-    private String httpMethed;
+    private String httpMethod;
 
     /**
      * 状态（0、正常；1、禁用）
@@ -89,7 +89,7 @@ public class Resources extends BaseModel implements Serializable {
 
     public static final String RES_PATH = "res_path";
 
-    public static final String HTTP_METHED = "http_methed";
+    public static final String HTTP_METHOD = "http_method";
 
     public static final String RES_STATUS = "res_status";
 

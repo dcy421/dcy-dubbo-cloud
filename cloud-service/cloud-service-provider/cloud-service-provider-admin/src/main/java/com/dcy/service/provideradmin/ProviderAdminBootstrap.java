@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @Date: 2020/7/29 8:43
  */
 @EnableAutoConfiguration
-@ComponentScan("com.dcy.service.provideradmin")
+@ComponentScan("com.dcy")
 @MapperScan(basePackages = {"com.dcy.service.provideradmin.mapper"})
 public class ProviderAdminBootstrap {
     public static void main(String[] args) {

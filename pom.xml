@@ -34,7 +34,7 @@
         <fastjson.version>1.2.73</fastjson.version>
         <servlet-api.version>4.0.1</servlet-api.version>
         <lombok.version>1.18.12</lombok.version>
-
+        <jjwt.version>0.9.1</jjwt.version>
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <log4j.version>1.2.17</log4j.version>
         <druid-stater.version>1.1.23</druid-stater.version>
@@ -82,6 +82,12 @@
             <dependency>
                 <groupId>com.dcy</groupId>
                 <artifactId>dcy-spring-dubbo-starter</artifactId>
+                <version>${dcy.maven.version}</version>
+            </dependency>
+            <!-- redis 公共依赖-->
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-redis-spring-boot-starter</artifactId>
                 <version>${dcy.maven.version}</version>
             </dependency>
         </dependencies>

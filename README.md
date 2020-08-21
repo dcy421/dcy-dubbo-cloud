@@ -11,7 +11,7 @@ Spring Cloud Alibaba | ✔
 Spring Cloud Alibaba Dubbo | ✔ 
 Spring Cloud Alibaba Sentinel | ✘ 
 Spring Cloud Alibaba Seata | ✘ 
-Spring Security oAuth2 | ✘
+Spring Security oAuth2 | ✔
 MyBatis Plus| ✔ 
 HikariCP | ✔ 
 OKHttp3 | ✘ 
@@ -24,8 +24,8 @@ Feign 传递 Token | ✘
 功能 | 完成 
 ----|----
 用户注册 | ✘ 
-用户登录 | ✘ 
-获取 Token | ✘ 
+用户登录 | ✔ 
+获取 Token | ✔ 
 
 ### 个人信息
 

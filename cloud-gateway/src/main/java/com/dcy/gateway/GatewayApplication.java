@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author dcy
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.dcy.gateway", "com.dcy.redis"})
 public class GatewayApplication {
 
     public static void main(String[] args) {

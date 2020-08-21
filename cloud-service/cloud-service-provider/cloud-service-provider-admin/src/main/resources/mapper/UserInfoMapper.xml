@@ -4,31 +4,35 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.dcy.service.apiadmin.model.UserInfo">
-        <id column="user_id" property="userId" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="nick_name" property="nickName" />
-        <result column="user_type" property="userType" />
-        <result column="email" property="email" />
-        <result column="phone_number" property="phoneNumber" />
-        <result column="sex" property="sex" />
-        <result column="avatar_path" property="avatarPath" />
-        <result column="user_status" property="userStatus" />
-        <result column="create_by" property="createBy" />
-        <result column="create_date" property="createDate" />
-        <result column="update_by" property="updateBy" />
-        <result column="update_date" property="updateDate" />
-        <result column="del_flag" property="delFlag" />
-        <result column="remark" property="remark" />
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nick_name" property="nickName"/>
+        <result column="user_type" property="userType"/>
+        <result column="email" property="email"/>
+        <result column="phone_number" property="phoneNumber"/>
+        <result column="sex" property="sex"/>
+        <result column="avatar_path" property="avatarPath"/>
+        <result column="user_status" property="userStatus"/>
+        <result column="create_by" property="createBy"/>
+        <result column="create_date" property="createDate"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_date" property="updateDate"/>
+        <result column="del_flag" property="delFlag"/>
+        <result column="remark" property="remark"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        user_id, username, password, nick_name, user_type, email, phone_number, sex, avatar_path, user_status, create_by, create_date, update_by, update_date, del_flag, remark
+        id, username, password, nick_name, user_type, email, phone_number, sex, avatar_path, user_status, create_by, create_date, update_by, update_date, del_flag, remark
     </sql>
 
-    <!-- 通用查询结果列 别名 -->
-    <sql id="Base_Column_List_Alias">
-        router.user_id AS userId,router.username,router.password,router.nick_name AS nickName,router.user_type AS userType,router.email,router.phone_number AS phoneNumber,router.sex,router.avatar_path AS avatarPath,router.user_status AS userStatus,router.create_by AS createBy,router.create_date AS createDate,router.update_by AS updateBy,router.update_date AS updateDate,router.del_flag AS delFlag,router.remark
-    </sql>
+    <select id="getResourcesByUserId" resultType="java.util.Map">
+        SELECT role.role_name,role.role_key,res.res_name, res.res_code, res.res_path, res.http_method, res.res_status, res.res_type FROM sys_user_info ui
+            INNER JOIN sys_user_role ur on ui.id=ur.user_id
+            INNER JOIN sys_role role on ur.role_id=role.id
+            INNER JOIN sys_role_res rr on rr.role_id = role.id
+            INNER JOIN sys_resources res on rr.res_id = res.id
+        WHERE ui.id = #{userId} AND role.role_status = 0 AND res.res_code is not null AND res.del_flag = 0 AND role.del_flag = 0
+    </select>
 </mapper>
