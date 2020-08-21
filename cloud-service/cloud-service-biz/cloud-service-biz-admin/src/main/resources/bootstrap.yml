@@ -1,0 +1,14 @@
+server:
+  port: 8456
+spring:
+  application:
+    name: admin-biz
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      server-addr: 192.168.109.132:8848
+
+dubbo:
+  registry:
+    address: nacos://${spring.cloud.nacos.server-addr}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dcy.service.provideradmin.mapper.ResourcesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dcy.service.apiadmin.model.Resources">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="parent_ids" property="parentIds" />
+        <result column="res_name" property="resName" />
+        <result column="res_code" property="resCode" />
+        <result column="res_path" property="resPath" />
+        <result column="http_methed" property="httpMethed" />
+        <result column="res_status" property="resStatus" />
+        <result column="res_type" property="resType" />
+        <result column="res_sort" property="resSort" />
+        <result column="create_by" property="createBy" />
+        <result column="create_date" property="createDate" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_date" property="updateDate" />
+        <result column="del_flag" property="delFlag" />
+        <result column="remark" property="remark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, parent_id, parent_ids, res_name, res_code, res_path, http_methed, res_status, res_type, res_sort, create_by, create_date, update_by, update_date, del_flag, remark
+    </sql>
+
+    <!-- 通用查询结果列 别名 -->
+    <sql id="Base_Column_List_Alias">
+        router.id,router.parent_id AS parentId,router.parent_ids AS parentIds,router.res_name AS resName,router.res_code AS resCode,router.res_path AS resPath,router.http_methed AS httpMethed,router.res_status AS resStatus,router.res_type AS resType,router.res_sort AS resSort,router.create_by AS createBy,router.create_date AS createDate,router.update_by AS updateBy,router.update_date AS updateDate,router.del_flag AS delFlag,router.remark
+    </sql>
+</mapper>

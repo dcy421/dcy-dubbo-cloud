@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dcy</groupId>
+    <artifactId>dcy-dubbo-cloud</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>cloud-api</module>
+        <module>cloud-service</module>
+        <module>cloud-gateway</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <dubbo.version>2.7.8</dubbo.version>
+        <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+        <api-boot.version>2.2.2.RELEASE</api-boot.version>
+
+        <hutool.version>5.4.0</hutool.version>
+        <fastjson.version>1.2.73</fastjson.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
+        <lombok.version>1.18.12</lombok.version>
+
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <log4j.version>1.2.17</log4j.version>
+        <druid-stater.version>1.1.23</druid-stater.version>
+
+        <!--<swagger.version>1.5.23</swagger.version>-->
+        <dcy.maven.version>1.0-SNAPSHOT</dcy.maven.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-spring-cloud-alibaba-dependencies</artifactId>
+                <version>${dcy.maven.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- 公共封装 -->
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-common-spring-boot-starter</artifactId>
+                <version>${dcy.maven.version}</version>
+            </dependency>
+            <!-- db 公共类封装 -->
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-db-base-spring-boot-starter</artifactId>
+                <version>${dcy.maven.version}</version>
+            </dependency>
+            <!-- db 操作数据库封装 -->
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-db-spring-boot-starter</artifactId>
+                <version>${dcy.maven.version}</version>
+            </dependency>
+            <!-- dubbo 公共依赖-->
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-spring-dubbo-starter</artifactId>
+                <version>${dcy.maven.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>nexus-aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://192.168.0.2:8081/repository/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://192.168.0.2:8081/repository/maven-snapshots/</url>
+        </repository>
+    </repositories>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <!--包含文件夹以及子文件夹下所有资源-->
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>    <!--默认关掉单元测试 -->
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
