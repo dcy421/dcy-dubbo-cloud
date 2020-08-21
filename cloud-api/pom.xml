@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-api</artifactId>
-    <description>统一出口，例如APP，PC，小程序</description>
+    <description>业务线，例如淘宝，天猫，转转</description>
 
 </project>

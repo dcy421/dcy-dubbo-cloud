@@ -11,7 +11,7 @@
 
     <artifactId>cloud-service-provider</artifactId>
     <packaging>pom</packaging>
-    <description>后台服务（基础支撑）</description>
+    <description>后台服务（基础支撑、业务中台）</description>
     <modules>
         <module>cloud-service-provider-admin</module>
     </modules>

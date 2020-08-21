@@ -14,6 +14,13 @@
         <module>cloud-gateway</module>
     </modules>
 
+    <developers>
+        <developer>
+            <id>dcy</id>
+            <email>1540770111@qq.com</email>
+        </developer>
+    </developers>
+
     <properties>
         <java.version>1.8</java.version>
 
