@@ -2,6 +2,8 @@ package com.dcy.service.apiadmin.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.dcy.db.base.model.BaseModel;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -21,58 +23,39 @@ import java.math.BigDecimal;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_resources")
+@ApiModel(value="Resources对象", description="资源表")
 public class Resources extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键id
-     */
+    @ApiModelProperty(value = "主键id")
     private String id;
 
-    /**
-     * 父级id
-     */
+    @ApiModelProperty(value = "父级id")
     private String parentId;
 
-    /**
-     * 父级ids
-     */
+    @ApiModelProperty(value = "父级ids")
     private String parentIds;
 
-    /**
-     * 资源名称
-     */
+    @ApiModelProperty(value = "资源名称")
     private String resName;
 
-    /**
-     * 资源code
-     */
+    @ApiModelProperty(value = "资源code")
     private String resCode;
 
-    /**
-     * 资源path
-     */
+    @ApiModelProperty(value = "资源path")
     private String resPath;
 
-    /**
-     * 请求方式
-     */
+    @ApiModelProperty(value = "请求方式")
     private String httpMethod;
 
-    /**
-     * 状态（0、正常；1、禁用）
-     */
+    @ApiModelProperty(value = "状态（0、正常；1、禁用）")
     private Boolean resStatus;
 
-    /**
-     * 类型（0、模块；1、链接）
-     */
+    @ApiModelProperty(value = "类型（0、模块；1、链接）")
     private Boolean resType;
 
-    /**
-     * 排序
-     */
+    @ApiModelProperty(value = "排序")
     private BigDecimal resSort;
 
     public static final String ID = "id";

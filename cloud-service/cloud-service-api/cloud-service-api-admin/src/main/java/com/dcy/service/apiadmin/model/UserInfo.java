@@ -3,6 +3,8 @@ package com.dcy.service.apiadmin.model;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.dcy.db.base.model.BaseModel;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -23,63 +25,42 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_user_info")
+@ApiModel(value="UserInfo对象", description="用户表")
 public class UserInfo extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 用户id
-     */
+    @ApiModelProperty(value = "用户id")
     private String id;
 
-    /**
-     * 用户名
-     */
+    @ApiModelProperty(value = "用户名")
     private String username;
 
-    /**
-     * 密码
-     */
+    @ApiModelProperty(value = "密码")
     private String password;
 
-    /**
-     * 用户昵称
-     */
+    @ApiModelProperty(value = "用户昵称")
     private String nickName;
 
-    /**
-     * 用户类型（0、管理员；1、普通用户）
-     */
+    @ApiModelProperty(value = "用户类型（0、管理员；1、普通用户）")
     private String userType;
 
-    /**
-     * 用户邮箱
-     */
+    @ApiModelProperty(value = "用户邮箱")
     private String email;
 
-    /**
-     * 手机号码
-     */
+    @ApiModelProperty(value = "手机号码")
     private String phoneNumber;
 
-    /**
-     * 性别（0、男；1、女）
-     */
+    @ApiModelProperty(value = "性别（0、男；1、女）")
     private String sex;
 
-    /**
-     * 头像
-     */
+    @ApiModelProperty(value = "头像")
     private String avatarPath;
 
-    /**
-     * 帐号状态（0、正常；1、禁用）
-     */
+    @ApiModelProperty(value = "帐号状态（0、正常；1、禁用）")
     private String userStatus;
 
-    /**
-     * 资源信息
-     */
+    @ApiModelProperty(value = "资源信息")
     @TableField(exist = false)
     private Set<String> resources;
 

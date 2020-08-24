@@ -2,6 +2,8 @@ package com.dcy.service.apiadmin.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.dcy.db.base.model.BaseModel;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -20,28 +22,21 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_role")
+@ApiModel(value="Role对象", description="角色表")
 public class Role extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 角色id
-     */
+    @ApiModelProperty(value = "角色id")
     private String id;
 
-    /**
-     * 角色名称
-     */
+    @ApiModelProperty(value = "角色名称")
     private String roleName;
 
-    /**
-     * 角色权限字符串
-     */
+    @ApiModelProperty(value = "角色权限字符串")
     private String roleKey;
 
-    /**
-     * 角色状态（0、正常；1、禁用）
-     */
+    @ApiModelProperty(value = "角色状态（0、正常；1、禁用）")
     private String roleStatus;
 
     public static final String ROLE_ID = "role_id";
