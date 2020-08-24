@@ -12,10 +12,12 @@ Spring Cloud Alibaba Dubbo | ✔
 Spring Cloud Alibaba Sentinel | ✘ 
 Spring Cloud Alibaba Seata | ✘ 
 Spring Security oAuth2 | ✔
+Swagger-ui |  ✔
 MyBatis Plus| ✔ 
 HikariCP | ✔ 
 OKHttp3 | ✘ 
 Feign 传递 Token | ✘ 
+
 
 ## 后台功能清单
 
