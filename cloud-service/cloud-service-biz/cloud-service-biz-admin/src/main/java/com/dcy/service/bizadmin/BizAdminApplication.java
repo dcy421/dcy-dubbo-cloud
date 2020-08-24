@@ -12,9 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan("com.dcy")
-public class BizAdminBootstrap {
+public class BizAdminApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BizAdminBootstrap.class);
+        SpringApplication.run(BizAdminApplication.class);
     }
 }
