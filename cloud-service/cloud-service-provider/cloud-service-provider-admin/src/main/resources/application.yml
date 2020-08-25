@@ -18,7 +18,9 @@ spring:
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
-
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml

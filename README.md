@@ -13,7 +13,8 @@ Spring Cloud Alibaba Sentinel | ✘
 Spring Cloud Alibaba Seata | ✘ 
 Spring Security oAuth2 | ✔
 Swagger-ui |  ✔
-MyBatis Plus| ✔ 
+MyBatis Plus 3.3| ✔ 
+flyway数据库版本控制 | ✔ 
 HikariCP | ✔ 
 OKHttp3 | ✘ 
 Feign 传递 Token | ✘ 

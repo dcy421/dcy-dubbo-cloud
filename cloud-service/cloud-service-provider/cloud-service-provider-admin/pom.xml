@@ -12,9 +12,16 @@
     <artifactId>cloud-service-provider-admin</artifactId>
 
     <dependencies>
+        <!-- Alibaba 配置中心 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!--初始化数据库使用-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flywaydb.version}</version>
         </dependency>
         <dependency>
             <groupId>com.dcy</groupId>
