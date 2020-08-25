@@ -18,7 +18,7 @@ spring:
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
-  flyway:MybatisPlusAutoConfiguration
+  flyway:
     enabled: true
     baseline-on-migrate: true
 
