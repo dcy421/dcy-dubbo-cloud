@@ -1,0 +1,14 @@
+api:
+  boot:
+    swagger:
+      title: Swagger2 文档
+      description: "Restful Api"
+      version: "1.0"
+      license: ""
+      license-url: ""
+      contact:
+        name: dcy
+        website: "https://github.com/dcy421"
+        email: "1540770111@qq.com"
+      authorization:
+        name: oauth2.0 认证头信息

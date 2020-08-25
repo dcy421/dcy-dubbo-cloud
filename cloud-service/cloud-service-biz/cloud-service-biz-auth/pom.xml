@@ -18,6 +18,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!-- Alibaba 配置中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
         <!-- spring boot web stater-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -40,6 +45,13 @@
         </dependency>
         <dependency>
             <groupId>com.dcy</groupId>
+            <artifactId>cloud-service-api-admin</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- redis 封装-->
+        <dependency>
+            <groupId>com.dcy</groupId>
             <artifactId>dcy-redis-spring-boot-starter</artifactId>
         </dependency>
         <!-- common 封装 -->
@@ -47,15 +59,15 @@
             <groupId>com.dcy</groupId>
             <artifactId>dcy-common-spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.dcy</groupId>
-            <artifactId>cloud-service-api-admin</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
+        <!-- dubbo 公共包封装-->
         <dependency>
             <groupId>com.dcy</groupId>
             <artifactId>dcy-spring-dubbo-starter</artifactId>
+        </dependency>
+        <!-- 日志封装-->
+        <dependency>
+            <groupId>com.dcy</groupId>
+            <artifactId>dcy-log-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

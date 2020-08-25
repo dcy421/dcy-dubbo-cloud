@@ -7,8 +7,6 @@ dubbo:
     name: dubbo
     port: -1
     serialization: kryo
-  registry:
-    address: nacos://192.168.109.132:8848
 
 spring:
   datasource:
@@ -20,6 +18,8 @@ spring:
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
+
+
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   type-aliases-package: com.dcy.service.apiadmin.model

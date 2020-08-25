@@ -18,14 +18,15 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+        <!-- Alibaba 配置中心 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
         <!-- spring cloud 网关-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
         <!-- spring boot 心跳 stater -->
         <dependency>
@@ -45,6 +46,11 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jjwt.version}</version>
         </dependency>
         <!-- swagger2 end -->
         <!-- redis 封装 + 分布式锁 -->
@@ -67,11 +73,11 @@
             <groupId>com.dcy</groupId>
             <artifactId>dcy-common-spring-boot-starter</artifactId>
         </dependency>
-
+        <!-- 日志封装-->
         <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>${jjwt.version}</version>
+            <groupId>com.dcy</groupId>
+            <artifactId>dcy-log-spring-boot-starter</artifactId>
         </dependency>
+
     </dependencies>
 </project>

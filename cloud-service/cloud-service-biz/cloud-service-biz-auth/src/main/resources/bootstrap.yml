@@ -1,15 +1,21 @@
 server:
-  port: 7777
+  port: 11002
 spring:
-  main:
-    allow-bean-definition-overriding: true
+  profiles:
+    active: ${SPRING_PROFILE:dev}
   application:
     name: auth-biz
+  main:
+    allow-bean-definition-overriding: true
   cloud:
     nacos:
-      server-addr: 192.168.109.132:8848
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}
+        file-extension: yaml
 
 dubbo:
   registry:
-    address: nacos://${spring.cloud.nacos.server-addr}
+    address: nacos://${NACOS_SERVER_ADDR:192.168.109.132:8848}
 

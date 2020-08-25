@@ -21,12 +21,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-
+        <!-- Alibaba 配置中心 -->
         <dependency>
-            <groupId>com.dcy</groupId>
-            <artifactId>dcy-web-spring-boot-starter</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
-
         <!-- swagger ui-->
         <dependency>
             <groupId>org.minbox.framework</groupId>
@@ -39,11 +38,21 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- web 公共封装-->
+        <dependency>
+            <groupId>com.dcy</groupId>
+            <artifactId>dcy-web-spring-boot-starter</artifactId>
+        </dependency>
+        <!-- dubbo 公共包封装-->
         <dependency>
             <groupId>com.dcy</groupId>
             <artifactId>dcy-spring-dubbo-starter</artifactId>
         </dependency>
-
+        <!-- 日志封装-->
+        <dependency>
+            <groupId>com.dcy</groupId>
+            <artifactId>dcy-log-spring-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 

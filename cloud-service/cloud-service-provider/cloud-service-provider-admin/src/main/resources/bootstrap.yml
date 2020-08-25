@@ -1,16 +1,12 @@
-server:
-  port: 11001
 spring:
   profiles:
     active: ${SPRING_PROFILE:dev}
   application:
-    name: admin-biz
+    name: provider-admin
   main:
     allow-bean-definition-overriding: true
   cloud:
     nacos:
-      discovery:
-        server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}
       config:
         server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}
         file-extension: yaml
@@ -18,3 +14,4 @@ spring:
 dubbo:
   registry:
     address: nacos://${NACOS_SERVER_ADDR:192.168.109.132:8848}
+

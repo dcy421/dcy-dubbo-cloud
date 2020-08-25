@@ -96,6 +96,12 @@
                 <artifactId>dcy-redis-spring-boot-starter</artifactId>
                 <version>${dcy.maven.version}</version>
             </dependency>
+            <!-- log 封装-->
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-log-spring-boot-starter</artifactId>
+                <version>${dcy.maven.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

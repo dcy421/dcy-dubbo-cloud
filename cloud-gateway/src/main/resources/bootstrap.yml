@@ -1,41 +1,16 @@
 server:
-  port: 9002
+  port: 15000
 spring:
+  profiles:
+    active: ${SPRING_PROFILE:dev}
   application:
-    name: gateway-center
+    name: gateway-center-dubbo
   main:
     allow-bean-definition-overriding: true
-  redis:
-    host: 192.168.0.2
-    port: 6379
   cloud:
     nacos:
-      server-addr: 192.168.109.132:8848
-    gateway:
       discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: admin-biz
-          uri: lb://admin-biz
-          predicates:
-            - Path=/admin-biz/**
-          filters:
-            - StripPrefix=1
-        - id: auth-biz
-          uri: lb://auth-biz
-          predicates:
-            - Path=/auth-biz/**
-          filters:
-            - StripPrefix=1
-
-
-
-ignored: |
-  /**/actuator/** , /**/actuator/**/** ,
-  /v2/api-docs/**, /swagger-ui.html, /swagger-resources/**, /webjars/** ,
-  /**/v2/api-docs/**, /**/swagger-ui.html, /**/swagger-resources/**, /**/webjars/**,
-  /**/favicon.ico, /**/prometheus,
-  /auth-biz/oauth/**,/auth-biz/getUserInfo,/auth-biz/getOAuthDetails,
-  /admin-biz/dict/getDictListByType,/admin-biz/dict/getDictTreeListByGroupType,
-  /admin-biz/**
+        server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}
+        file-extension: yaml
