@@ -60,6 +60,12 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- web 公共封装-->
+            <dependency>
+                <groupId>com.dcy</groupId>
+                <artifactId>dcy-web-spring-boot-starter</artifactId>
+                <version>${dcy.maven.version}</version>
+            </dependency>
             <!-- 公共封装 -->
             <dependency>
                 <groupId>com.dcy</groupId>

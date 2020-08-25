@@ -22,20 +22,17 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- Spring Boot dependencies -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.dcy</groupId>
+            <artifactId>dcy-web-spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+
         <!-- swagger ui-->
         <dependency>
             <groupId>org.minbox.framework</groupId>
             <artifactId>api-boot-starter-swagger</artifactId>
         </dependency>
+
         <dependency>
             <groupId>com.dcy</groupId>
             <artifactId>cloud-service-api-admin</artifactId>
@@ -45,11 +42,6 @@
         <dependency>
             <groupId>com.dcy</groupId>
             <artifactId>dcy-spring-dubbo-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.dcy</groupId>
-            <artifactId>dcy-common-spring-boot-starter</artifactId>
         </dependency>
 
     </dependencies>
