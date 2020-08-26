@@ -38,7 +38,7 @@ public class DictServiceImpl extends BaseServiceImpl<DictMapper, Dict> implement
         List<Dict> dictList = baseMapper.selectList(new LambdaQueryWrapper<Dict>().eq(Dict::getDictType, groupType).orderByAsc(Dict::getDictSort));
         List<Dict> treeDataList = new ArrayList<>();
         dictList.stream().forEach(sysDict -> {
-            if ("0".equalsIgnoreCase(sysDict.getParentId())) {
+            if (Constant.DEFAULT_PARENT_VAL.equalsIgnoreCase(sysDict.getParentId())) {
                 treeDataList.add(sysDict);
             }
         });
@@ -53,7 +53,7 @@ public class DictServiceImpl extends BaseServiceImpl<DictMapper, Dict> implement
         List<Dict> dictList = baseMapper.selectList(new LambdaQueryWrapper<Dict>().orderByAsc(Dict::getDictSort));
         List<Dict> treeDataList = new ArrayList<>();
         dictList.stream().forEach(sysDict -> {
-            if ("0".equalsIgnoreCase(sysDict.getParentId())) {
+            if (Constant.DEFAULT_PARENT_VAL.equalsIgnoreCase(sysDict.getParentId())) {
                 treeDataList.add(sysDict);
             }
         });

@@ -2,6 +2,7 @@ package com.dcy.service.provideradmin.service;
 
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.dcy.common.constant.Constant;
 import com.dcy.db.base.service.impl.BaseServiceImpl;
 import com.dcy.service.apiadmin.api.ResourcesService;
 import com.dcy.service.apiadmin.model.Resources;
@@ -38,7 +39,7 @@ public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resou
         List<Resources> sysModuleResources = baseMapper.selectList(new LambdaQueryWrapper<Resources>().orderByAsc(Resources::getResSort));
         List<Resources> treeDataList = new ArrayList<>();
         sysModuleResources.stream().forEach(sysModuleResources1 -> {
-            if ("0".equalsIgnoreCase(sysModuleResources1.getParentId())) {
+            if (Constant.DEFAULT_PARENT_VAL.equalsIgnoreCase(sysModuleResources1.getParentId())) {
                 treeDataList.add(sysModuleResources1);
             }
         });
