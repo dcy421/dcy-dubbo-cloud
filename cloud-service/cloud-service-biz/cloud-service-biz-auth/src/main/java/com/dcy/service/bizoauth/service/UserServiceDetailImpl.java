@@ -43,7 +43,7 @@ public class UserServiceDetailImpl implements UserDetailsService {
             // 查询权限
             List<Map<String, Object>> resources = userInfoService.getResourcesByUserId(userInfo.getId());
             if (CollUtil.isNotEmpty(resources)) {
-                Set<String> userIdSet = resources.stream().map(res -> StrUtil.toString(res.get("res_code"))).collect(Collectors.toSet());
+                Set<String> userIdSet = resources.stream().map(res -> StrUtil.toString(res.get("resCode"))).collect(Collectors.toSet());
                 redisTemplate.opsForValue().set(Constant.REDIS_USER_MODULE_LIST_KEY + userInfo.getId(), resources);
                 AuthUser authUser = new AuthUser();
                 authUser.setUserInfo(userInfo);

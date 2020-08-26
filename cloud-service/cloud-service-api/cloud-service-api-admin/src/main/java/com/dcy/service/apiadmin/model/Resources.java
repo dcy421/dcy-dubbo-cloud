@@ -52,10 +52,10 @@ public class Resources extends BaseModel implements Serializable {
     private String httpMethod;
 
     @ApiModelProperty(value = "状态（0、正常；1、禁用）")
-    private Boolean resStatus;
+    private String resStatus;
 
     @ApiModelProperty(value = "类型（0、模块；1、链接）")
-    private Boolean resType;
+    private String resType;
 
     @ApiModelProperty(value = "排序")
     private BigDecimal resSort;

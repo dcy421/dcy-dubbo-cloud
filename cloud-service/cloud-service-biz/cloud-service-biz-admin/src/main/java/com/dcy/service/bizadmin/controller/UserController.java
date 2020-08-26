@@ -40,12 +40,22 @@ public class UserController {
         return ResponseData.success(userInfoService.pageList(userInfo));
     }
 
+    @ApiOperation(value = "根据用户名获取用户信息", notes = "根据用户名获取用户信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "username", value = "用户名", dataType = "String", paramType = "query", required = true)
+    })
+    @GetMapping(value = "/getUserInfoByUsername")
+    public ResponseData<UserInfo> getUserInfoByUsername(@RequestParam String username) {
+        return ResponseData.success(userInfoService.getUserInfoByUsername(username));
+    }
+
     @ApiOperation(value = "添加", notes = "添加")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "body", dataType = "UserInfo", name = "userInfo", value = "UserInfo对象", required = true)
     })
     @PostMapping(value = "/save")
     public ResponseData<Boolean> save(@RequestBody UserInfo userInfo) {
+        userInfo.setPassword("{bcrypt}" + passwordEncoder.encode(userInfo.getPassword()));
         return ResponseData.success(userInfoService.save(userInfo));
     }
 

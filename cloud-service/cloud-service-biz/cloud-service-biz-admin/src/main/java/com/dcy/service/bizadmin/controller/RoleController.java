@@ -37,6 +37,15 @@ public class RoleController {
         return ResponseData.success(roleService.pageList(role));
     }
 
+    @ApiOperation(value = "获取全部信息", notes = "获取全部信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "role", value = "Role对象", dataType = "Role", paramType = "query")
+    })
+    @GetMapping(value = "/all")
+    public ResponseData<List<Role>> all() {
+        return ResponseData.success(roleService.list());
+    }
+
     @ApiOperation(value = "添加", notes = "添加")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "body", dataType = "Role", name = "role", value = "Role对象", required = true)
