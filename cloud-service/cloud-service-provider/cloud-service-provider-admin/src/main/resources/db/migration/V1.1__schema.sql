@@ -46,14 +46,13 @@ INSERT INTO `oauth_client_details` VALUES ('dcy_admin_client', NULL, '{bcrypt}$2
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict`;
 CREATE TABLE `sys_dict`  (
-  `dict_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '字典主键',
+  `id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '字典主键',
   `parent_id` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '父级id',
   `parent_ids` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '父级ids',
   `dict_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '字典类型',
-  `dict_lable` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '字典名称',
+  `dict_label` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '字典名称',
   `dict_value` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '字典键值',
-  `location` decimal(20, 2) NULL DEFAULT NULL COMMENT '排序',
-  `has_children` tinyint(11) NULL DEFAULT NULL COMMENT '子节点',
+  `dict_sort` decimal(20, 2) NULL DEFAULT NULL COMMENT '排序',
   `type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '子类型',
   `create_by` varchar(36) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建者',
   `create_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '创建时间',
@@ -61,30 +60,30 @@ CREATE TABLE `sys_dict`  (
   `update_date` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '更新时间',
   `del_flag` tinyint(11) NULL DEFAULT 0 COMMENT '删除标识',
   `remark` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`dict_id`) USING BTREE
+  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '字典类型表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_dict
 -- ----------------------------
-INSERT INTO `sys_dict` VALUES ('1', '0', '0', 'sex_group', '性别', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('10', '0', '0', 'menu_type_group', '权限类型', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('11', '10', '0,10', 'menu_type_group', '模块权限', '0', 0.00, NULL, 'menu_type', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('12', '10', '0,10', 'menu_type_group', '菜单权限', '1', 1.00, NULL, 'menu_type', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('13', '0', '0', 'module_type_group', '模块类型', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('14', '13', '0,13', 'module_type_group', '模块', '0', 0.00, NULL, 'module_type', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('15', '13', '0,13', 'module_type_group', '操作', '1', 1.00, NULL, 'module_type', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('16', '0', '0', 'http_method_group', '请求方式', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('17', '16', '0,16', 'http_method_group', 'GET', 'GET', 0.00, NULL, 'http_method', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('18', '16', '0,16', 'http_method_group', 'POST', 'POST', 1.00, NULL, 'http_method', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('2', '1', '0,1', 'sex_group', '男', '0', 0.00, NULL, 'sex', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('3', '1', '0,1', 'sex_group', '女', '1', 1.00, NULL, 'sex', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('4', '0', '0', 'status_group', '状态', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('5', '4', '0,4', 'status_group', '正常', '0', 0.00, NULL, 'status', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('6', '4', '0,4', 'status_group', '禁用', '1', 1.00, NULL, 'status', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('7', '0', '0', 'power_type_group', '菜单类型', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('8', '7', '0,7', 'power_type_group', '模块', '0', 0.00, NULL, 'power_type', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `sys_dict` VALUES ('9', '7', '0,7', 'power_type_group', '菜单', '1', 1.00, NULL, 'power_type', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('1', '0', '0', 'sex_group', '性别', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('10', '0', '0', 'menu_type_group', '权限类型', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('11', '10', '0,10', 'menu_type_group', '模块权限', '0', 0.00, 'menu_type', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('12', '10', '0,10', 'menu_type_group', '菜单权限', '1', 1.00, 'menu_type', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('13', '0', '0', 'module_type_group', '模块类型', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('14', '13', '0,13', 'module_type_group', '模块', '0', 0.00, 'module_type', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('15', '13', '0,13', 'module_type_group', '操作', '1', 1.00, 'module_type', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('16', '0', '0', 'http_method_group', '请求方式', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('17', '16', '0,16', 'http_method_group', 'GET', 'GET', 0.00, 'http_method', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('18', '16', '0,16', 'http_method_group', 'POST', 'POST', 1.00, 'http_method', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('2', '1', '0,1', 'sex_group', '男', '0', 0.00, 'sex', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('3', '1', '0,1', 'sex_group', '女', '1', 1.00, 'sex', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('4', '0', '0', 'status_group', '状态', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('5', '4', '0,4', 'status_group', '正常', '0', 0.00, 'status', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('6', '4', '0,4', 'status_group', '禁用', '1', 1.00, 'status', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('7', '0', '0', 'power_type_group', '菜单类型', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('8', '7', '0,7', 'power_type_group', '模块', '0', 0.00, 'power_type', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `sys_dict` VALUES ('9', '7', '0,7', 'power_type_group', '菜单', '1', 1.00, 'power_type', NULL, NULL, NULL, NULL, 0, NULL);
 
 -- ----------------------------
 -- Table structure for sys_resources

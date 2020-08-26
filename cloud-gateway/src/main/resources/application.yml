@@ -8,16 +8,16 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: admin-biz
-          uri: lb://admin-biz
+        - id: admin-center
+          uri: lb://admin-center
           predicates:
-            - Path=/admin-biz/**
+            - Path=/admin-center/**
           filters:
             - StripPrefix=1
-        - id: auth-biz
-          uri: lb://auth-biz
+        - id: auth-center
+          uri: lb://auth-center
           predicates:
-            - Path=/auth-biz/**
+            - Path=/auth-center/**
           filters:
             - StripPrefix=1
 
@@ -26,12 +26,12 @@ spring:
 ribbon:
   eager-load:
     enabled: true
-    clients: auth-biz,admin-biz
+    clients: auth-center,admin-center
 
 ignored: |
   /**/actuator/** , /**/actuator/**/** ,
   /v2/api-docs/**, /swagger-ui.html, /swagger-resources/**, /webjars/** ,
   /**/v2/api-docs/**, /**/swagger-ui.html, /**/swagger-resources/**, /**/webjars/**,
   /**/favicon.ico,
-  /auth-biz/oauth/**,/auth-biz/getUserInfo,/auth-biz/getOAuthDetails,
-  /admin-biz/**
+  /auth-center/oauth/**,/auth-center/getUserInfo,/auth-center/getOAuthDetails,
+  /admin-center/**
