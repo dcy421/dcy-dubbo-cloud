@@ -1,7 +1,9 @@
 package com.dcy.service.apiadmin.api;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.dcy.db.base.service.BaseService;
 import com.dcy.service.apiadmin.model.Resources;
+
+import java.util.List;
 
 /**
  * <p>
@@ -11,6 +13,18 @@ import com.dcy.service.apiadmin.model.Resources;
  * @author dcy
  * @since 2020-08-19
  */
-public interface ResourcesService extends IService<Resources> {
+public interface ResourcesService extends BaseService<Resources> {
 
+    /**
+     * 获取tree-table 数据
+     * @return
+     */
+    List<Resources> getResourceTreeTableList();
+
+    /**
+     * 获取tree 数据
+     * @param roleId
+     * @return
+     */
+    List<String> getResourceTreeListByRoleId(String roleId);
 }

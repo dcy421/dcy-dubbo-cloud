@@ -21,6 +21,9 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
+  redis:
+    host: 192.168.0.2
+    port: 6379
 
 mybatis-plus:
   configuration:

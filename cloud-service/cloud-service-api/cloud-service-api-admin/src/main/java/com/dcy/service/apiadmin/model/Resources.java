@@ -1,5 +1,6 @@
 package com.dcy.service.apiadmin.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.dcy.db.base.model.BaseModel;
 import io.swagger.annotations.ApiModel;
@@ -10,6 +11,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * <p>
@@ -57,6 +59,9 @@ public class Resources extends BaseModel implements Serializable {
 
     @ApiModelProperty(value = "排序")
     private BigDecimal resSort;
+
+    @TableField(exist = false)
+    private List<Resources> children;
 
     public static final String ID = "id";
 

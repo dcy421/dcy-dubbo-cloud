@@ -1,7 +1,7 @@
 package com.dcy.service.apiadmin.api;
 
+import com.dcy.db.base.service.BaseService;
 import com.dcy.service.apiadmin.model.UserRole;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author dcy
  * @since 2020-08-19
  */
-public interface UserRoleService extends IService<UserRole> {
+public interface UserRoleService extends BaseService<UserRole> {
 
 }

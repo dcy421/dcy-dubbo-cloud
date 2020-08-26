@@ -1,7 +1,11 @@
 package com.dcy.service.provideradmin.mapper;
 
-import com.dcy.service.apiadmin.model.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dcy.service.apiadmin.model.Resources;
+import com.dcy.service.apiadmin.model.Role;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface RoleMapper extends BaseMapper<Role> {
 
+    /**
+     *根据角色id查询已授权的权限列表
+     * @param roleId
+     * @return
+     */
+    List<Resources> getAuthResourceListByRoleId(@Param("roleId") String roleId);
 }

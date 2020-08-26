@@ -1,7 +1,8 @@
 package com.dcy.service.provideradmin.mapper;
 
-import com.dcy.service.apiadmin.model.UserInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dcy.service.apiadmin.model.Role;
+import com.dcy.service.apiadmin.model.UserInfo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -24,5 +25,12 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
      * @return
      */
     List<Map<String, Object>> getResourcesByUserId(@Param("userId") String userId);
+
+    /**
+     *根据用户id 查询已授权角色列表
+     * @param userId
+     * @return
+     */
+    List<Role> getAuthRoleListByUserId(@Param("userId") String userId);
 
 }
