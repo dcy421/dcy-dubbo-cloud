@@ -6,15 +6,17 @@ spring cloud alibaba + dubbo 2.7.8 对内RPC 对外REST
 
 集成 | 完成 
 ----|----
-Spring Boot | ✔
-Spring Cloud Alibaba | ✔ 
-Spring Cloud Alibaba Dubbo | ✔ 
+Spring Boot 2.3.2.RELEASE | ✔
+Spring Cloud Cloud Hoxton.SR6 | ✔ 
+Spring Cloud Alibaba 2.2.1.RELEASE | ✔ 
+Spring Cloud Alibaba Dubbo 2.7.8 | ✔ 
 Spring Cloud Alibaba Sentinel | ✘ 
 Spring Cloud Alibaba Seata | ✘ 
+Api-Boot 2.3.0.RELEASE | ✔
 Spring Security oAuth2 | ✔
-Swagger-ui |  ✔
-MyBatis Plus 3.3| ✔ 
-flyway数据库版本控制 | ✔ 
+Swagger-ui 2.9.2 |  ✔
+MyBatis Plus 3.3.0 | ✔ 
+flyway 6.5 | ✔ 
 HikariCP | ✔ 
 
 
