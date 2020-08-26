@@ -27,6 +27,7 @@ ribbon:
   eager-load:
     enabled: true
     clients: auth-center,admin-center
+  ServerListRefreshInterval: 10  #刷新服务列表源的间隔时间
 
 ignored: |
   /**/actuator/** , /**/actuator/**/** ,
@@ -34,4 +35,4 @@ ignored: |
   /**/v2/api-docs/**, /**/swagger-ui.html, /**/swagger-resources/**, /**/webjars/**,
   /**/favicon.ico,
   /auth-center/oauth/**,/auth-center/getUserInfo,/auth-center/getOAuthDetails,
-  /admin-center/**
+  /admin-center/dict/getDictListByType,/admin-center/dict/getDictTreeListByGroupType

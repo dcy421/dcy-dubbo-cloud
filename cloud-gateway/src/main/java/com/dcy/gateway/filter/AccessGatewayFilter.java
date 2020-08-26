@@ -75,7 +75,7 @@ public class AccessGatewayFilter implements GlobalFilter, Ordered {
             List<Map<String, Object>> moduleResourcesList = (List<Map<String, Object>>) redisTemplate.opsForValue().get(Constant.REDIS_USER_MODULE_LIST_KEY + userId);
             for (Map<String, Object> moduleResources : moduleResourcesList) {
                 // 判断是否符合url 和 method
-                if (antPathMatcher.match(MapUtil.getStr(moduleResources, "res_path"), url) && request.getMethod().matches(MapUtil.getStr(moduleResources, "http_method"))) {
+                if (antPathMatcher.match(MapUtil.getStr(moduleResources, "resPath"), url) && request.getMethod().matches(MapUtil.getStr(moduleResources, "httpMethod"))) {
                     ServerHttpRequest newRequest = request.mutate().headers(httpHeaders -> {
                         httpHeaders.add(Constant.CONTEXT_KEY_USER_ID, userId);
                         httpHeaders.add(Constant.CONTEXT_KEY_USERNAME, username);

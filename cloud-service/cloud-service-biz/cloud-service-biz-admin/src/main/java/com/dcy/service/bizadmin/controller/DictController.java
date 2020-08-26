@@ -1,6 +1,5 @@
 package com.dcy.service.bizadmin.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.dcy.common.model.ResponseData;
 import com.dcy.service.apiadmin.api.DictService;
 import com.dcy.service.apiadmin.model.Dict;
@@ -27,15 +26,6 @@ public class DictController {
     @DubboReference(version = "1.0.0")
     private DictService dictService;
 
-    @ApiOperation(value = "分页查询", notes = "分页查询")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "dict", value = "Dict对象", dataType = "Dict", paramType = "query")
-    })
-    @GetMapping(value = "/page")
-    public ResponseData<IPage<Dict>> page(Dict dict) {
-        return ResponseData.success(dictService.pageList(dict));
-    }
-
     @ApiOperation(value = "添加", notes = "添加")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "body", dataType = "Dict", name = "dict", value = "Dict对象", required = true)
@@ -58,12 +48,6 @@ public class DictController {
     @PostMapping(value = "/delete")
     public ResponseData<Boolean> delete(@RequestParam String id) {
         return ResponseData.success(dictService.removeById(id));
-    }
-
-    @ApiOperation(value = "根据list删除", notes = "根据list删除")
-    @PostMapping(value = "/deleteBatch")
-    public ResponseData<Boolean> deleteBatch(@RequestBody List<String> idList) {
-        return ResponseData.success(dictService.removeByIds(idList));
     }
 
     @ApiOperation(value = "获取tree-table列表数据", notes = "获取tree-table列表数据")
