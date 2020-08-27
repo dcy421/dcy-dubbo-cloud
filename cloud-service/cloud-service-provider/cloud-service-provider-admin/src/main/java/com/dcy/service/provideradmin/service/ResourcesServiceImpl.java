@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  * @author dcy
  * @since 2020-08-19
  */
-@DubboService(version = "1.0.0")
+@DubboService(version = "1.0.0",timeout = 3000)
 @Service
 @Transactional
 public class ResourcesServiceImpl extends BaseServiceImpl<ResourcesMapper, Resources> implements ResourcesService {

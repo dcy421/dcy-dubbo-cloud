@@ -23,7 +23,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * <p>
@@ -33,7 +32,7 @@ import java.util.Set;
  * @author dcy
  * @since 2020-08-19
  */
-@DubboService(version = "1.0.0")
+@DubboService(version = "1.0.0",timeout = 3000)
 @Service
 @Transactional
 public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {

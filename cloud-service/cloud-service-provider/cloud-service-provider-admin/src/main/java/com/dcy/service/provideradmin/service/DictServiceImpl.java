@@ -26,7 +26,7 @@ import java.util.List;
  * @author dcy
  * @since 2020-08-26
  */
-@DubboService(version = "1.0.0")
+@DubboService(version = "1.0.0",timeout = 3000)
 @Service
 @Transactional
 public class DictServiceImpl extends BaseServiceImpl<DictMapper, Dict> implements DictService {

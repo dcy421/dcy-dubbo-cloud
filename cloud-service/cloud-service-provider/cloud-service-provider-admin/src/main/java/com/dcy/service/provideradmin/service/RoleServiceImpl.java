@@ -29,7 +29,7 @@ import java.util.Map;
  * @author dcy
  * @since 2020-08-19
  */
-@DubboService(version = "1.0.0")
+@DubboService(version = "1.0.0",timeout = 3000)
 @Service
 @Transactional
 public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implements RoleService {
