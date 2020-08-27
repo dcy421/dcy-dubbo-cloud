@@ -19,22 +19,6 @@ import java.util.Map;
 public interface UserInfoService extends BaseService<UserInfo> {
 
     /**
-     * 登录
-     *
-     * @param userInfo
-     * @return
-     */
-    String login(UserInfo userInfo);
-
-    /**
-     * 根据加密信息得到用户信息
-     *
-     * @param token
-     * @return
-     */
-    UserInfo getUserInfo(String token);
-
-    /**
      * 根据用户名获取用户信息
      *
      * @param username

@@ -43,26 +43,6 @@ public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoMapper, UserInf
     private UserRoleMapper userRoleMapper;
 
     @Override
-    public String login(UserInfo userInfo) {
-        UserInfo userInfo1 = super.getOne(Wrappers.<UserInfo>lambdaQuery().eq(UserInfo::getUsername, userInfo.getUsername()));
-        if (BPwdEncoderUtil.matches(userInfo.getPassword(), userInfo1.getPassword().replace("{bcrypt}", ""))) {
-            return JwtUtil.generateToken(JSON.toJSONString(userInfo1));
-        }
-        return null;
-    }
-
-    @Override
-    public UserInfo getUserInfo(String token) {
-        String validateToken = JwtUtil.validateToken(token);
-        if (StrUtil.isNotBlank(validateToken)) {
-            UserInfo userInfo = JSON.parseObject(validateToken, UserInfo.class);
-            userInfo.setPassword(null);
-            return userInfo;
-        }
-        return null;
-    }
-
-    @Override
     public UserInfo getUserInfoByUsername(String username) {
         return super.getOne(Wrappers.<UserInfo>lambdaQuery().eq(UserInfo::getUsername, username));
     }
