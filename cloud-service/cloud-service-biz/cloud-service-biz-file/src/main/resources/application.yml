@@ -18,9 +18,14 @@ dcy:
       web-url: 192.168.109.132:8888
 #fastDFS配置
 fdfs:
-  soTimeout: 1500
-  connectTimeout: 600
-  trackerList: 192.168.109.132:22122
+  so-timeout: 1500
+  connect-timeout: 600
+  tracker-list: 192.168.109.132:22122
+  pool:
+    jmx-enabled: false
+  thumb-image:
+    width: 150
+    height: 150
 
 
 # 密钥：AK 和 SK https://portal.qiniu.com/user/key

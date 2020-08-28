@@ -12,7 +12,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
  */
 @Setter
 @Getter
-@ConfigurationProperties(prefix = "jkr.file-server")
+@ConfigurationProperties(prefix = "dcy.file-server")
 @RefreshScope
 public class FileServerProperties {
     /**
