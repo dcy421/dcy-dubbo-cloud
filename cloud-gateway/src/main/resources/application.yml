@@ -36,7 +36,6 @@ ribbon:
   ServerListRefreshInterval: 10  #刷新服务列表源的间隔时间
 
 ignored: |
-  /**/actuator/** , /**/actuator/**/** ,
   /v2/api-docs/**, /swagger-ui.html, /swagger-resources/**, /webjars/** ,
   /**/v2/api-docs/**, /**/swagger-ui.html, /**/swagger-resources/**, /**/webjars/**,
   /**/favicon.ico,
