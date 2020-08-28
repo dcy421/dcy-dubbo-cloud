@@ -1,0 +1,66 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dcy-cloud?nullNamePatternMatchesAll=true&useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+dcy:
+  file-server:
+    type: fastdfs
+    fdfs:
+      web-url: 192.168.109.132:8888
+#fastDFS配置
+fdfs:
+  soTimeout: 1500
+  connectTimeout: 600
+  trackerList: 192.168.109.132:22122
+
+
+# 密钥：AK 和 SK https://portal.qiniu.com/user/key
+# bucketName 创建得存储空间名称
+# endpoint 域名
+# dcy:
+#   file-server:
+#     type: qiniu
+#     oss:
+#       access-key: B9r_DPgk9sCv-V6MMTyyi7KwHXdeQO0_FrUqNep0
+#       accessKeySecret: 3y5qKrrNtJIaFgW1Axb-UbP2ERrYL9S7rzNCFcyk
+#       endpoint: http://py9cmj9ml.bkt.clouddn.com/
+#       bucketName: dcy-micro-service
+#dcy:
+#  file-server:
+#    type: aliyun
+#    oss:
+#      access-key: LTAIMjvZWiXRuClW
+#      accessKeySecret: YwJar7gkdZx3Q3Zk6TRuEAWaAz6n8y
+#      endpoint: oss-cn-beijing.aliyuncs.com
+#      bucketName: owenwangwen
+#      domain: https://owenwangwen.oss-cn-beijing.aliyuncs.com
+
+mybatis-plus:
+  configuration:
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    jdbc-type-for-null: 'null'
+
+api:
+  boot:
+    swagger:
+      title: Swagger2 文档
+      description: "Restful Api"
+      version: "1.0"
+      license: ""
+      license-url: ""
+      contact:
+        name: dcy
+        website: "https://github.com/dcy421"
+        email: "1540770111@qq.com"
+      authorization:
+        name: oauth2.0 认证头信息

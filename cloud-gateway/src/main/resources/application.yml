@@ -20,13 +20,19 @@ spring:
             - Path=/auth-center/**
           filters:
             - StripPrefix=1
+        - id: file-center
+          uri: lb://file-center
+          predicates:
+            - Path=/file-center/**
+          filters:
+            - StripPrefix=1
 
 
 #设置ribbon饥渴模式
 ribbon:
   eager-load:
     enabled: true
-    clients: auth-center,admin-center
+    clients: auth-center,admin-center,file-center
   ServerListRefreshInterval: 10  #刷新服务列表源的间隔时间
 
 ignored: |
