@@ -1,0 +1,8 @@
+version: '3'
+services:
+  # Alibaba sentinel-dashboard
+  sentinel:
+    image: bladex/sentinel-dashboard:1.7.1
+    ports:
+      - 8858:8858
+    restart: always
