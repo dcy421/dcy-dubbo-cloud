@@ -1,0 +1,14 @@
+server:
+  port: 12001
+
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+  application:
+    name: monitor-center
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}

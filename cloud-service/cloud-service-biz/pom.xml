@@ -16,6 +16,7 @@
         <module>cloud-service-biz-admin</module>
         <module>cloud-service-biz-auth</module>
         <module>cloud-service-biz-file</module>
+        <module>cloud-service-biz-monitor</module>
     </modules>
 
 

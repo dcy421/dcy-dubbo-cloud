@@ -32,7 +32,7 @@ spring:
 ribbon:
   eager-load:
     enabled: true
-    clients: auth-center,admin-center,file-center
+    clients: auth-center,admin-center,file-center,monitor-center
   ServerListRefreshInterval: 10  #刷新服务列表源的间隔时间
 
 ignored: |
