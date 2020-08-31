@@ -13,11 +13,11 @@
     <packaging>pom</packaging>
     <description>业务中台</description>
     <modules>
-        <module>cloud-service-biz-admin</module>
-        <module>cloud-service-biz-auth</module>
-        <module>cloud-service-biz-file</module>
-        <module>cloud-service-biz-monitor</module>
-        <module>cloud-service-biz-generate</module>
+        <module>cloud-service-admin-biz</module>
+        <module>cloud-service-auth-biz</module>
+        <module>cloud-service-file-biz</module>
+        <module>cloud-service-monitor-biz</module>
+        <module>cloud-service-generate-biz</module>
     </modules>
 
 

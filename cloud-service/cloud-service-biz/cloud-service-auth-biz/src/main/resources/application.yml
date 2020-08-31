@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/dcy-cloud?nullNamePatternMatchesAll=true&useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&serverTimezone=UTC
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+  redis:
+    host: 192.168.0.2
+    port: 6379
+
+api:
+  boot:
+    swagger:
+      title: Swagger2 文档
+      description: "Restful Api"
+      version: "1.0"
+      license: ""
+      license-url: ""
+      contact:
+        name: dcy
+        website: "https://github.com/dcy421"
+        email: "1540770111@qq.com"
+      authorization:
+        name: oauth2.0 认证头信息

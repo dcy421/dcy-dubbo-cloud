@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <description>服务接口</description>
     <modules>
-        <module>cloud-service-api-admin</module>
+        <module>cloud-service-admin-api</module>
     </modules>
 
 
