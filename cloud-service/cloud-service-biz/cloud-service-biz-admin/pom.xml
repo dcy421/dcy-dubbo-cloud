@@ -10,10 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-service-biz-admin</artifactId>
-
-    <properties>
-        <nacos.version>1.2.1</nacos.version>
-    </properties>
+    <description>用户中台</description>
 
     <dependencies>
         <!-- Alibaba 注册中心 -->

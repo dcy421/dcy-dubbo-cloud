@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+
+import com.dcy.db.base.model.BaseModel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -26,7 +28,7 @@ import java.util.List;
 @Accessors(chain = true)
 @TableName("sys_dict")
 @ApiModel(value="Dict对象", description="字典类型表")
-public class Dict implements Serializable {
+public class Dict extends BaseModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
