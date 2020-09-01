@@ -32,75 +32,84 @@ public class SimpleGenerator {
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
-        //开启 BaseResultMap
-        gc.setBaseResultMap(true);
-        //开启 baseColumnList
-        gc.setBaseColumnList(true);
-        gc.setSwagger2(true);
-        gc.setFileOverride(true);
+        //开发人员
+        gc.setAuthor("dcy")
+            //开启 BaseResultMap
+            .setBaseResultMap(true)
+            //开启 baseColumnList
+            .setBaseColumnList(true)
+            // 开启swagger
+            .setSwagger2(true)
+            .setFileOverride(true)
+            // 生成文件的输出目录
+            .setOutputDir(generModel.getPack())
+            // 是否打开输出目录
+            .setOpen(false)
+            // 修改service名称
+            .setServiceName("%sService");
 
         //gc.setOutputDir(projectPath + "/mybatis-plus-sample-generator/src/main/java");
-        // 生成文件的输出目录
-        gc.setOutputDir(generModel.getPack());
-        //开发人员
-        gc.setAuthor("dcy");
-        // 是否打开输出目录
-        gc.setOpen(false);
-        // 修改service名称
-        gc.setServiceName("%sService");
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl(generModel.getDbUrl());
-        dsc.setDriverName(generModel.getDriverName());
-        dsc.setUsername(generModel.getUsername());
-        dsc.setPassword(generModel.getPassword());
+        dsc.setUrl(generModel.getDbUrl())
+            .setDriverName(generModel.getDriverName())
+            .setUsername(generModel.getUsername())
+            .setPassword(generModel.getPassword());
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.dcy");
-        pc.setController("biz.controller");
-        pc.setEntity("api.model");
-        pc.setService("api.api");
-        pc.setServiceImpl("provider.service");
-        pc.setMapper("provider.mapper");
-        pc.setXml("mapper");
         String models = generModel.getModules();
-//        父包模块名
-        pc.setModuleName(models);
+
+        pc.setParent("com.dcy")
+            .setController("biz.controller")
+            .setEntity("api.model")
+            .setService("api.api")
+            .setServiceImpl("provider.service")
+            .setMapper("provider.mapper")
+            .setXml("mapper")
+            //父包模块名
+            .setModuleName(models);
         mpg.setPackageInfo(pc);
 
+        // 自定义生成文件
         setTemplateMapper(mpg, generModel);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
-        strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setEntityLombokModel(true);
-        // 设置父类
-//        strategy.setSuperControllerClass("com.dcy.db.base.controller.BaseController");
-        strategy.setSuperEntityClass(BaseModel.class);
-        strategy.setSuperServiceClass("com.dcy.db.base.service.BaseService");
-        strategy.setSuperServiceImplClass("com.dcy.db.base.service.impl.BaseServiceImpl");
+        strategy.setNaming(NamingStrategy.underline_to_camel)
+            .setColumnNaming(NamingStrategy.underline_to_camel)
+            .setEntityLombokModel(true)
+            // 设置父类
+    //        strategy.setSuperControllerClass("com.dcy.db.base.controller.BaseController");
+            .setSuperEntityClass(BaseModel.class)
+            .setSuperServiceClass("com.dcy.db.base.service.BaseService")
+            .setSuperServiceImplClass("com.dcy.db.base.service.impl.BaseServiceImpl")
 
-        strategy.setInclude(generModel.getTableName().split(","));
-        strategy.setControllerMappingHyphenStyle(true);
-        strategy.setEntityColumnConstant(true);
-        strategy.setRestControllerStyle(true);
-        strategy.setTablePrefix(generModel.getPrefix().split(","));
+            .setInclude(generModel.getTableName().split(","))
+            .setControllerMappingHyphenStyle(true)
+            .setEntityColumnConstant(true)
+            .setRestControllerStyle(true)
+            .setTablePrefix(generModel.getPrefix().split(","));
         mpg.setStrategy(strategy);
-        // 选择 freemarker 引擎需要指定如下加，注意 pom 依赖必须有！
+
+
+        // 模板引擎 选择 freemarker 引擎需要指定如下加，注意 pom 依赖必须有！
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
+
+        // 模板路径配置
         TemplateConfig tc = new TemplateConfig();
-        tc.setController("/simple/controller.java");
-        tc.setService("/simple/service.java");
-        tc.setServiceImpl("/simple/serviceImpl.java");
-        tc.setEntity("/simple/entity.java");
-        tc.setMapper("/simple/mapper.java");
-        tc.setXml("/simple/mapper.xml");
+        tc.setController("/simple/controller.java")
+            .setService("/simple/service.java")
+            .setServiceImpl("/simple/serviceImpl.java")
+            .setEntity("/simple/entity.java")
+            .setMapper("/simple/mapper.java")
+            .setXml("/simple/mapper.xml");
         mpg.setTemplate(tc);
+
+        // 生成代码
         mpg.execute();
     }
 

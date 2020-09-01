@@ -22,7 +22,6 @@ import java.util.List;
 @Api(value = "DictController", tags = {"字典操作接口"})
 public class DictController {
 
-
     @DubboReference(version = "1.0.0")
     private DictService dictService;
 
