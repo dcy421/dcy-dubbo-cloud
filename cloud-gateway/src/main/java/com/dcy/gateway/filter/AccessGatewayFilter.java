@@ -64,9 +64,9 @@ public class AccessGatewayFilter implements GlobalFilter, Ordered {
             authorization = authorization.replaceFirst(Constant.BEARER_TYPE, "");
             // 解析token
             DefaultClaims body = (DefaultClaims) Jwts.parser().setSigningKey(Constant.SIGNING_KEY.getBytes()).parseClaimsJws(authorization).getBody();
-            if (System.currentTimeMillis() > body.getExpiration().getTime()) {
+            /*if (System.currentTimeMillis() > body.getExpiration().getTime()) {
                 return getVoidMono(exchange, ResponseData.error(3000,"token已经过期了"));
-            }
+            }*/
             // 获取用户对象
             Map<String, Object> map = body.get(Constant.USER_INFO, Map.class);
             String userId = MapUtil.getStr(map, "id");

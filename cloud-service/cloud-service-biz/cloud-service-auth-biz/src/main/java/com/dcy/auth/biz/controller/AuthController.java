@@ -1,9 +1,9 @@
 package com.dcy.auth.biz.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.dcy.admin.api.model.UserInfo;
 import com.dcy.common.constant.Constant;
 import com.dcy.common.model.ResponseData;
-import com.dcy.admin.api.model.UserInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
