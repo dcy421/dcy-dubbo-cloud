@@ -1,14 +1,18 @@
 package com.dcy.admin.biz.controller;
 
-import com.dcy.common.model.ResponseData;
 import com.dcy.admin.api.api.DictService;
 import com.dcy.admin.api.model.Dict;
+import com.dcy.common.model.ResponseData;
+import com.dcy.db.base.controller.BaseController;
+import com.dcy.db.base.service.BaseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.dubbo.config.annotation.DubboReference;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -20,33 +24,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/dict")
 @Api(value = "DictController", tags = {"字典操作接口"})
-public class DictController {
+public class DictController extends BaseController<Dict> {
 
     @DubboReference(version = "1.0.0")
     private DictService dictService;
 
-    @ApiOperation(value = "添加", notes = "添加")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "body", dataType = "Dict", name = "dict", value = "Dict对象", required = true)
-    })
-    @PostMapping(value = "/save")
-    public ResponseData<Boolean> save(@RequestBody Dict dict) {
-        return ResponseData.success(dictService.save(dict));
-    }
-
-    @ApiOperation(value = "修改", notes = "修改")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "body", dataType = "Dict", name = "dict", value = "Dict对象", required = true)
-    })
-    @PostMapping(value = "/update")
-    public ResponseData<Boolean> update(@RequestBody Dict dict) {
-        return ResponseData.success(dictService.updateById(dict));
-    }
-
-    @ApiOperation(value = "删除", notes = "删除")
-    @PostMapping(value = "/delete")
-    public ResponseData<Boolean> delete(@RequestParam String id) {
-        return ResponseData.success(dictService.removeById(id));
+    @Override
+    protected <T extends BaseService<Dict>> T getService() {
+        return (T) dictService;
     }
 
     @ApiOperation(value = "获取tree-table列表数据", notes = "获取tree-table列表数据")

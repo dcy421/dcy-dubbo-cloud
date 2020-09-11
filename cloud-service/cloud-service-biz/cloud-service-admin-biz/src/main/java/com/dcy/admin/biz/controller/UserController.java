@@ -1,11 +1,12 @@
 package com.dcy.admin.biz.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.dcy.common.model.ResponseData;
 import com.dcy.admin.api.api.UserInfoService;
 import com.dcy.admin.api.dto.UserInfoRoleDto;
 import com.dcy.admin.api.model.Role;
 import com.dcy.admin.api.model.UserInfo;
+import com.dcy.common.model.ResponseData;
+import com.dcy.db.base.controller.BaseController;
+import com.dcy.db.base.service.BaseService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -24,20 +25,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Api(value = "UserController", tags = {"用户操作接口"})
-public class UserController {
+public class UserController extends BaseController<UserInfo> {
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @DubboReference(version = "1.0.0")
     private UserInfoService userInfoService;
 
-    @ApiOperation(value = "分页查询", notes = "分页查询")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "userInfo", value = "UserInfo对象", dataType = "UserInfo", paramType = "query")
-    })
-    @GetMapping(value = "/page")
-    public ResponseData<IPage<UserInfo>> page(UserInfo userInfo) {
-        return ResponseData.success(userInfoService.pageList(userInfo));
+    @Override
+    public <T extends BaseService<UserInfo>> T getService() {
+        return (T) userInfoService;
+    }
+
+    @Override
+    public ResponseData<Boolean> save(UserInfo userInfo) {
+        userInfo.setPassword("{bcrypt}" + passwordEncoder.encode(userInfo.getPassword()));
+        return ResponseData.success(userInfoService.save(userInfo));
     }
 
     @ApiOperation(value = "根据用户名获取用户信息", notes = "根据用户名获取用户信息")
@@ -47,37 +50,6 @@ public class UserController {
     @GetMapping(value = "/getUserInfoByUsername")
     public ResponseData<UserInfo> getUserInfoByUsername(@RequestParam String username) {
         return ResponseData.success(userInfoService.getUserInfoByUsername(username));
-    }
-
-    @ApiOperation(value = "添加", notes = "添加")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "body", dataType = "UserInfo", name = "userInfo", value = "UserInfo对象", required = true)
-    })
-    @PostMapping(value = "/save")
-    public ResponseData<Boolean> save(@RequestBody UserInfo userInfo) {
-        userInfo.setPassword("{bcrypt}" + passwordEncoder.encode(userInfo.getPassword()));
-        return ResponseData.success(userInfoService.save(userInfo));
-    }
-
-    @ApiOperation(value = "修改", notes = "修改")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "body", dataType = "UserInfo", name = "userInfo", value = "UserInfo对象", required = true)
-    })
-    @PostMapping(value = "/update")
-    public ResponseData<Boolean> update(@RequestBody UserInfo userInfo) {
-        return ResponseData.success(userInfoService.updateById(userInfo));
-    }
-
-    @ApiOperation(value = "删除", notes = "删除")
-    @PostMapping(value = "/delete")
-    public ResponseData<Boolean> delete(@RequestParam String id) {
-        return ResponseData.success(userInfoService.removeById(id));
-    }
-
-    @ApiOperation(value = "根据list删除", notes = "根据list删除")
-    @PostMapping(value = "/deleteBatch")
-    public ResponseData<Boolean> deleteBatch(@RequestBody List<String> idList) {
-        return ResponseData.success(userInfoService.removeByIds(idList));
     }
 
     @ApiOperation(value = "重置密码", notes = "重置密码")
@@ -107,4 +79,5 @@ public class UserController {
     public ResponseData<Boolean> saveAuthRole(@RequestBody UserInfoRoleDto userInfoRoleDto) {
         return ResponseData.success(userInfoService.saveAuthRole(userInfoRoleDto));
     }
+
 }
