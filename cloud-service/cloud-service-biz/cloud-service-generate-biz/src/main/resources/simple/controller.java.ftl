@@ -4,6 +4,7 @@ package ${package.Controller};
 import org.springframework.web.bind.annotation.RequestMapping;
 import ${package.Entity}.${entity};
 import ${package.Service}.${table.serviceName};
+import org.apache.dubbo.config.annotation.DubboReference;
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
 <#else>
@@ -31,10 +32,19 @@ import ${superControllerClassPackage};
 class ${table.controllerName}<#if superControllerClass??> : ${superControllerClass}()</#if>
 <#else>
 <#if superControllerClass??>
-public class ${table.controllerName} extends ${superControllerClass}<${table.serviceName}, ${entity}> {
+public class ${table.controllerName} extends ${superControllerClass}<${entity}> {
 <#else>
 public class ${table.controllerName} {
 </#if>
+
+    @DubboReference(version = "1.0.0")
+    private ${table.serviceName} ${table.serviceName?uncap_first};
+
+    @Override
+    protected <T extends BaseService<${entity}>> T getService() {
+        return (T) ${table.serviceName?uncap_first};
+    }
+
 
 }
 </#if>

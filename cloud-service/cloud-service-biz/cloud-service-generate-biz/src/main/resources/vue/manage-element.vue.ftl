@@ -18,8 +18,8 @@
     </el-form>
 
     <!-- 表格 -->
-    <dcy-table
-      ref="dcyTable"
+    <table-page
+      ref="tablePage"
       url="${cfg.modulesApi}/page"
       :columns="columns"
       :query-params="queryParams"
@@ -28,7 +28,7 @@
         <el-button @click="update(row)" type="text" >修改</el-button>
         <el-button @click="remove(row)" type="text" >删除</el-button>
       </template>
-    </dcy-table>
+    </table-page>
 
     <!-- 添加表单 -->
     <el-dialog
@@ -55,13 +55,13 @@
 </template>
 
 <script>
-  import DcyTable from '@/components/dcy/dcy-table'
-  import {add${cfg.modules}, deleteBatch${cfg.modules}ById, delete${cfg.modules}ById, update${cfg.modules}} from "@/api/admin/${cfg.modulesApi}";
-  import { MessageError, MessageSuccess, ConfirmCustom } from '@/libs/message'
+  import TablePage from "_c/CommonForm/table-page";
+  import {add${cfg.modules}, deleteBatch${cfg.modules}ById, delete${cfg.modules}ById, update${cfg.modules}} from "_a/admin/${cfg.modulesApi}/${cfg.modulesApi}";
+  import { MessageError, MessageSuccess, ConfirmCustom } from '_l/message'
 
   export default {
     name: '${cfg.modulesApi}-manage',
-    components: { DcyTable },
+    components: { TablePage },
     data() {
       return {
         columns: [
@@ -94,7 +94,7 @@
        * 刷新
        */
       refresh() {
-        this.$refs.dcyTable.refresh();
+        this.$refs.tablePage.refresh();
       },
       /**
        * 重置搜索条件

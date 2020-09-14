@@ -83,7 +83,7 @@ public class SimpleGenerator {
             .setColumnNaming(NamingStrategy.underline_to_camel)
             .setEntityLombokModel(true)
             // 设置父类
-    //        strategy.setSuperControllerClass("com.dcy.db.base.controller.BaseController");
+            .setSuperControllerClass("com.dcy.db.base.controller.BaseController")
             .setSuperEntityClass(BaseModel.class)
             .setSuperServiceClass("com.dcy.db.base.service.BaseService")
             .setSuperServiceImplClass("com.dcy.db.base.service.impl.BaseServiceImpl")

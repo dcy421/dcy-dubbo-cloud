@@ -1,4 +1,4 @@
-import axios from '@/libs/api.request'
+import axios from '_l/api.request'
 
 /**
  * 添加${cfg.modulesName}
