@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Data
 @ApiModel(value="授权角色对象", description="授权角色使用")
-public class UserInfoRoleDto {
+public class UserInfoRoleDTO {
 
     @ApiModelProperty(value = "用户id")
     private String userId;

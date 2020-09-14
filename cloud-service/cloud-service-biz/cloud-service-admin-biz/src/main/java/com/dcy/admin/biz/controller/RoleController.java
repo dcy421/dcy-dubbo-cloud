@@ -1,7 +1,7 @@
 package com.dcy.admin.biz.controller;
 
 import com.dcy.admin.api.api.RoleService;
-import com.dcy.admin.api.dto.RoleResourceDto;
+import com.dcy.admin.api.dto.RoleResourceDTO;
 import com.dcy.admin.api.model.Resources;
 import com.dcy.admin.api.model.Role;
 import com.dcy.common.model.ResponseData;
@@ -48,7 +48,7 @@ public class RoleController extends BaseController<Role> {
             @ApiImplicitParam(paramType = "body", dataType = "RoleResourceDto", name = "roleResourceDto", value = "对象参数", required = true)
     })
     @PostMapping(value = "/saveAuthResource")
-    public ResponseData<Boolean> saveAuthResource(@RequestBody RoleResourceDto roleResourceDto) {
+    public ResponseData<Boolean> saveAuthResource(@RequestBody RoleResourceDTO roleResourceDto) {
         return ResponseData.success(roleService.saveAuthResource(roleResourceDto));
     }
 }

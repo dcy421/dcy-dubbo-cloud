@@ -1,7 +1,7 @@
 package com.dcy.admin.biz.controller;
 
 import com.dcy.admin.api.api.UserInfoService;
-import com.dcy.admin.api.dto.UserInfoRoleDto;
+import com.dcy.admin.api.dto.UserInfoRoleDTO;
 import com.dcy.admin.api.model.Role;
 import com.dcy.admin.api.model.UserInfo;
 import com.dcy.common.model.ResponseData;
@@ -76,7 +76,7 @@ public class UserController extends BaseController<UserInfo> {
             @ApiImplicitParam(paramType = "body", dataType = "UserInfoRoleDto", name = "userInfoRoleDto", value = "授权角色对象参数", required = true)
     })
     @PostMapping(value = "/saveAuthRole")
-    public ResponseData<Boolean> saveAuthRole(@RequestBody UserInfoRoleDto userInfoRoleDto) {
+    public ResponseData<Boolean> saveAuthRole(@RequestBody UserInfoRoleDTO userInfoRoleDto) {
         return ResponseData.success(userInfoService.saveAuthRole(userInfoRoleDto));
     }
 

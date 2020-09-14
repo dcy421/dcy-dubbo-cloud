@@ -7,7 +7,7 @@ import com.dcy.admin.provider.mapper.UserInfoMapper;
 import com.dcy.common.constant.Constant;
 import com.dcy.db.base.service.impl.BaseServiceImpl;
 import com.dcy.admin.api.api.UserInfoService;
-import com.dcy.admin.api.dto.UserInfoRoleDto;
+import com.dcy.admin.api.dto.UserInfoRoleDTO;
 import com.dcy.admin.api.model.Role;
 import com.dcy.admin.api.model.UserInfo;
 import com.dcy.admin.api.model.UserRole;
@@ -55,7 +55,7 @@ public class UserInfoServiceImpl extends BaseServiceImpl<UserInfoMapper, UserInf
     }
 
     @Override
-    public Boolean saveAuthRole(UserInfoRoleDto userInfoRoleDto) {
+    public Boolean saveAuthRole(UserInfoRoleDTO userInfoRoleDto) {
         boolean success = false;
         if (StrUtil.isNotBlank(userInfoRoleDto.getUserId()) && userInfoRoleDto.getRoleIds() != null) {
             // 删除关联表

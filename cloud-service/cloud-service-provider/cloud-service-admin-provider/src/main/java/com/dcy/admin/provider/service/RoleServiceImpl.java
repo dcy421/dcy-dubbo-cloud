@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.dcy.common.constant.Constant;
 import com.dcy.db.base.service.impl.BaseServiceImpl;
 import com.dcy.admin.api.api.RoleService;
-import com.dcy.admin.api.dto.RoleResourceDto;
+import com.dcy.admin.api.dto.RoleResourceDTO;
 import com.dcy.admin.api.model.Resources;
 import com.dcy.admin.api.model.Role;
 import com.dcy.admin.api.model.RoleRes;
@@ -47,7 +47,7 @@ public class RoleServiceImpl extends BaseServiceImpl<RoleMapper, Role> implement
     }
 
     @Override
-    public Boolean saveAuthResource(RoleResourceDto roleResourceDto) {
+    public Boolean saveAuthResource(RoleResourceDTO roleResourceDto) {
         boolean success = false;
         if (StrUtil.isNotBlank(roleResourceDto.getRoleId()) && roleResourceDto.getResIds() != null) {
             // 删除关联表

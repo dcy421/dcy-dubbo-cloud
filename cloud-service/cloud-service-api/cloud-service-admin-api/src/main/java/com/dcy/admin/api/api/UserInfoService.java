@@ -1,6 +1,6 @@
 package com.dcy.admin.api.api;
 
-import com.dcy.admin.api.dto.UserInfoRoleDto;
+import com.dcy.admin.api.dto.UserInfoRoleDTO;
 import com.dcy.admin.api.model.Role;
 import com.dcy.db.base.service.BaseService;
 import com.dcy.admin.api.model.UserInfo;
@@ -47,5 +47,5 @@ public interface UserInfoService extends BaseService<UserInfo> {
      * @param userInfoRoleDto
      * @return
      */
-    Boolean saveAuthRole(UserInfoRoleDto userInfoRoleDto);
+    Boolean saveAuthRole(UserInfoRoleDTO userInfoRoleDto);
 }

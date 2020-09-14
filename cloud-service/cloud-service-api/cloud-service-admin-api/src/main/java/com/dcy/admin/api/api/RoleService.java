@@ -1,6 +1,6 @@
 package com.dcy.admin.api.api;
 
-import com.dcy.admin.api.dto.RoleResourceDto;
+import com.dcy.admin.api.dto.RoleResourceDTO;
 import com.dcy.admin.api.model.Resources;
 import com.dcy.admin.api.model.Role;
 import com.dcy.db.base.service.BaseService;
@@ -29,5 +29,5 @@ public interface RoleService extends BaseService<Role> {
      * @param roleResourceDto
      * @return
      */
-    Boolean saveAuthResource(RoleResourceDto roleResourceDto);
+    Boolean saveAuthResource(RoleResourceDTO roleResourceDto);
 }
