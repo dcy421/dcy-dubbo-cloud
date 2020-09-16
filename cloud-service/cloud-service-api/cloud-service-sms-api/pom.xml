@@ -3,19 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>cloud-service</artifactId>
+        <artifactId>cloud-service-api</artifactId>
         <groupId>com.dcy</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-service-provider</artifactId>
-    <packaging>pom</packaging>
-    <description>后台服务（基础支撑、业务中台）</description>
-    <modules>
-        <module>cloud-service-admin-provider</module>
-        <module>cloud-service-sms-provider</module>
-    </modules>
-
+    <artifactId>cloud-service-sms-api</artifactId>
 
 </project>

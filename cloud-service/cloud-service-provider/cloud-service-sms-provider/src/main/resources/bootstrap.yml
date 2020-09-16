@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: ${SPRING_PROFILE:dev}
+  application:
+    name: provider-admin
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_SERVER_ADDR:192.168.109.132:8848}
+        file-extension: yaml
+
+dubbo:
+  registry:
+    address: nacos://${NACOS_SERVER_ADDR:192.168.109.132:8848}
+

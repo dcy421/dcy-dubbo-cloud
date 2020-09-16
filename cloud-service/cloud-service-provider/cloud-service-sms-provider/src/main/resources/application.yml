@@ -1,0 +1,17 @@
+dubbo:
+  application:
+    name: provider-sms
+  scan:
+    base-packages: com.dcy.sms.provider.service
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+dcy:
+  boot:
+    sms:
+      access-key-id: LTAIozTcAzncj1l3
+      access-key-secret: tcTdhpGqeFF1YUShcN1zbwjV2ISkX0
+      sign-name: 君伴
+      version: 2017-05-25
+      region-id: cn-hangzhou
