@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-service-biz-monitor</artifactId>
+    <artifactId>cloud-service-monitor-biz</artifactId>
     <description>监控中台</description>
 
     <dependencies>
