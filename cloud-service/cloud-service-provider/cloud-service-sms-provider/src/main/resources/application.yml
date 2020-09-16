@@ -10,8 +10,8 @@ dubbo:
 dcy:
   boot:
     sms:
-      access-key-id: LTAIozTcAzncj1l3
-      access-key-secret: tcTdhpGqeFF1YUShcN1zbwjV2ISkX0
-      sign-name: 君伴
+      access-key-id: xxxxxxxxxx
+      access-key-secret: xxxxxxxxxx
+      sign-name: 测试签名
       version: 2017-05-25
       region-id: cn-hangzhou
