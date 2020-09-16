@@ -1,7 +1,8 @@
 package com.dcy.sms.api.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
@@ -10,8 +11,9 @@ import java.io.Serializable;
  * @Description: 消息对象
  * @Date: 2020/9/16 8:37
  */
-@Data
-@Builder
+@Getter
+@Setter
+@Accessors(chain = true)
 public class SmsRequestDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
