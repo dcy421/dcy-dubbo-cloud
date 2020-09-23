@@ -6,8 +6,8 @@ spring cloud alibaba + dubbo 2.7.8 对内RPC 对外REST
 
 集成 | 完成 
 ----|----
-Spring Boot 2.3.2.RELEASE | ✔
-Spring Cloud Cloud Hoxton.SR6 | ✔ 
+Spring Boot 2.3.3.RELEASE | ✔
+Spring Cloud Cloud Hoxton.SR8 | ✔ 
 Spring Cloud Alibaba 2.2.1.RELEASE | ✔ 
 Spring Cloud Alibaba Dubbo 2.7.8 | ✔ 
 Spring Cloud Alibaba Sentinel | ✘ 
@@ -19,8 +19,17 @@ MyBatis Plus 3.3.0 | ✔
 flyway 6.5 | ✔ 
 HikariCP | ✔ 
 
+## 后期规划
+功能 | 完成 
+----|----
+代码生成器页面端 | ✘ 
+部门管理 | ✘ 
+职位管理 | ✘ 
+业务日志 | ✘ 
+登录日志 | ✘ 
+工作流集成activity | ✘  
 
-## 后台功能清单
+## 已完成功能清单
 
 ### 认证授权
 功能 | 完成 
@@ -91,3 +100,4 @@ HikariCP | ✔
 功能 | 完成 
 ----|----
 代码生成器 | ✔ 
+
