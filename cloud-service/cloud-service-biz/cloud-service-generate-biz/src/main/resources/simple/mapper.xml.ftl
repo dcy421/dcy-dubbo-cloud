@@ -29,15 +29,12 @@
 <#if baseColumnList>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-<#list table.commonFields as field>
-        ${field.columnName},
-</#list>
-        ${table.fieldNames}
+        <#list table.fields as field><#if field.name == field.propertyName>${field.name}<#else>${field.name} AS ${field.propertyName}</#if>,</#list><#list table.commonFields as field><#if field.name == field.propertyName>${field.name}<#else>${field.name} AS ${field.propertyName}</#if><#if table.commonFields?size != field_index+1>,</#if></#list>
     </sql>
 
     <!-- 通用查询结果列 别名 -->
     <sql id="Base_Column_List_Alias">
-        <#list table.fields as field><#if field.name == field.propertyName>${cfg.modulesApi}.${field.name}<#else>${cfg.modulesApi}.${field.name} AS ${field.propertyName}</#if><#if table.fields?size != field_index+1>,</#if></#list>
+        <#list table.fields as field><#if field.name == field.propertyName>${entity?uncap_first}.${field.name}<#else>${entity?uncap_first}.${field.name} AS ${field.propertyName}</#if>,</#list><#list table.commonFields as field><#if field.name == field.propertyName>${entity?uncap_first}.${field.name}<#else>${entity?uncap_first}.${field.name} AS ${field.propertyName}</#if><#if table.commonFields?size != field_index+1>,</#if></#list>
     </sql>
 </#if>
 </mapper>

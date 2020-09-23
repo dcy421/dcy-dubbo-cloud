@@ -12,7 +12,7 @@
       <el-form-item label-width="0px">
         <el-button icon="el-icon-search" type="primary" @click="refresh()">查询</el-button>
         <el-button icon="el-icon-refresh" type="primary" @click="reset()">重置</el-button>
-        <el-button icon="el-icon-plus" type="primary" @click="add${cfg.modules}()">添加</el-button>
+        <el-button icon="el-icon-plus" type="primary" @click="add${entity?cap_first}()">添加</el-button>
         <el-button icon="el-icon-delete" type="primary" @click="removeBatch()" :disabled="delBtnDisabled">删除</el-button>
       </el-form-item>
     </el-form>
@@ -20,7 +20,7 @@
     <!-- 表格 -->
     <table-page
       ref="tablePage"
-      url="${cfg.modulesApi}/page"
+      url="${entity?uncap_first}/page"
       :columns="columns"
       :query-params="queryParams"
       @table-select-val="selectVal">
@@ -56,11 +56,11 @@
 
 <script>
   import TablePage from "_c/CommonForm/table-page";
-  import {add${cfg.modules}, deleteBatch${cfg.modules}ById, delete${cfg.modules}ById, update${cfg.modules}} from "_a/admin/${cfg.modulesApi}/${cfg.modulesApi}";
+  import {add${entity?cap_first}, deleteBatch${entity?cap_first}ById, delete${entity?cap_first}ById, update${entity?cap_first}} from "_a/admin/${entity?uncap_first}/${entity?uncap_first}";
   import { MessageError, MessageSuccess, ConfirmCustom } from '_l/message'
 
   export default {
-    name: '${cfg.modulesApi}-manage',
+    name: '${entity?uncap_first}-manage',
     components: { TablePage },
     data() {
       return {
@@ -75,7 +75,7 @@
         queryParams: {},
         dialogShow:false,
         delBtnDisabled:true,
-        dialogTitle: '添加${cfg.modulesName}',
+        dialogTitle: '添加${table.comment!}',
         form: {},
         rules: {
           <#list table.fields as field>
@@ -105,9 +105,9 @@
       /**
        * 添加弹出框
        */
-      add${cfg.modules}(){
+      add${entity?cap_first}(){
         this.form = {};
-        this.dialogTitle = '添加${cfg.modulesName}';
+        this.dialogTitle = '添加${table.comment!}';
         this.dialogShow = true;
       },
       /**
@@ -116,14 +116,14 @@
        */
       update(row){
         this.form = {...row};
-        this.dialogTitle = '修改${cfg.modulesName}';
+        this.dialogTitle = '修改${table.comment!}';
         this.dialogShow = true;
       },
       /**
        * 点击每一行的checkbox
        */
       selectVal(ids) {
-        this.ids = ids.map(val => val['${cfg.modulesApi}Id']);
+        this.ids = ids.map(val => val['${entity?uncap_first}Id']);
         this.delBtnDisabled = !this.ids.length
       },
       /**
@@ -131,7 +131,7 @@
        */
       removeBatch() {
         ConfirmCustom({type:'warning'}).then(()=>{
-          deleteBatch${cfg.modules}ById(this.ids).then(res => {
+          deleteBatch${entity?cap_first}ById(this.ids).then(res => {
             if (res.data) {
               MessageSuccess('del')
             } else {
@@ -147,7 +147,7 @@
        */
       remove(row) {
         ConfirmCustom({type:'warning'}).then(()=>{
-          delete${cfg.modules}ById(row.${cfg.modulesApi}Id).then(res => {
+          delete${entity?cap_first}ById(row.${entity?uncap_first}Id).then(res => {
             if (res.data) {
               MessageSuccess('del')
             } else {
@@ -173,8 +173,8 @@
       handleSubmit(name) {
         this.$refs[name].validate((valid) => {
           if (valid) {
-            if (this.dialogTitle === '添加${cfg.modulesName}') {
-              add${cfg.modules}(this.form).then(res => {
+            if (this.dialogTitle === '添加${table.comment!}') {
+              add${entity?cap_first}(this.form).then(res => {
                 if (res.data) {
                   MessageSuccess('add')
                 } else {
@@ -183,7 +183,7 @@
                 this.cancelDialogAndRefresh()
               })
             } else {
-              update${cfg.modules}(this.form).then(res => {
+              update${entity?cap_first}(this.form).then(res => {
                 if (res.data) {
                   MessageSuccess('upd')
                 } else {

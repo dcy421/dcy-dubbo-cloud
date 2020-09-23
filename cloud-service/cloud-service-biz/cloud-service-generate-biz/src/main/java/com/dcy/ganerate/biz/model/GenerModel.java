@@ -29,10 +29,6 @@ public class GenerModel {
      */
     private String password;
     /**
-     * 模块名称（中文）
-     */
-    private String modulesName;
-    /**
      * 表名
      */
     private String tableName;

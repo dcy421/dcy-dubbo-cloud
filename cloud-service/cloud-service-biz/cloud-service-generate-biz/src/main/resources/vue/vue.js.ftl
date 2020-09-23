@@ -1,55 +1,55 @@
 import axios from '_l/api.request'
 
 /**
- * 添加${cfg.modulesName}
- * @param ${cfg.modulesApi}
+ * 添加${table.comment!}
+ * @param ${entity?uncap_first}
  * @returns {ClientHttp2Stream | * | AxiosPromise<any> | ClientRequest | void}
  */
-export const add${cfg.modules} = (${cfg.modulesApi}) => {
+export const add${entity?cap_first} = (${entity?uncap_first}) => {
   return axios.request({
-    url: '/admin-service/${cfg.modulesApi}/save',
+    url: '/admin-service/${entity?uncap_first}/save',
     method: 'post',
-    data: ${cfg.modulesApi}
+    data: ${entity?uncap_first}
   })
 }
 
 /**
- * 修改${cfg.modulesName}
- * @param ${cfg.modulesApi}
+ * 修改${table.comment!}
+ * @param ${entity?uncap_first}
  * @returns {ClientHttp2Stream | * | AxiosPromise<any> | ClientRequest | void}
  */
-export const update${cfg.modules} = (${cfg.modulesApi}) => {
+export const update${entity?cap_first} = (${entity?uncap_first}) => {
   return axios.request({
-    url: '/admin-service/${cfg.modulesApi}/update',
+    url: '/admin-service/${entity?uncap_first}/update',
     method: 'post',
-    data: ${cfg.modulesApi}
+    data: ${entity?uncap_first}
   })
 }
 
 /**
- * 删除${cfg.modulesName}
- * @param ${cfg.modulesApi}Id
+ * 删除${table.comment!}
+ * @param ${entity?uncap_first}Id
  * @returns {ClientHttp2Stream | * | AxiosPromise<any> | ClientRequest | void}
  */
-export const delete${cfg.modules}ById = (${cfg.modulesApi}Id) => {
+export const delete${entity?cap_first}ById = (${entity?uncap_first}Id) => {
   return axios.request({
-    url: '/admin-service/${cfg.modulesApi}/delete',
+    url: '/admin-service/${entity?uncap_first}/delete',
     method: 'post',
     params: {
-      id: ${cfg.modulesApi}Id
+      id: ${entity?uncap_first}Id
     }
   })
 }
 
 /**
- * 批量删除${cfg.modulesName}
- * @param ${cfg.modulesApi}Ids
+ * 批量删除${table.comment!}
+ * @param ${entity?uncap_first}Ids
  * @returns {ClientHttp2Stream | * | AxiosPromise<any> | ClientRequest | void}
  */
-export const deleteBatch${cfg.modules}ById = (${cfg.modulesApi}Ids) => {
+export const deleteBatch${entity?cap_first}ById = (${entity?uncap_first}Ids) => {
   return axios.request({
-    url: '/admin-service/${cfg.modulesApi}/deleteBatch',
+    url: '/admin-service/${entity?uncap_first}/deleteBatch',
     method: 'post',
-    data: ${cfg.modulesApi}Ids
+    data: ${entity?uncap_first}Ids
   })
 }

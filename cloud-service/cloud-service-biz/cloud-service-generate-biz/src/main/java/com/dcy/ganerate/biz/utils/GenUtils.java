@@ -18,7 +18,6 @@ public class GenUtils {
         generModel.setDriverName(props.getStr("db.driverName"));
         generModel.setUsername(props.getStr("db.username"));
         generModel.setPassword(props.getStr("db.password"));
-        generModel.setModulesName(props.getStr("table.modulesName"));
         generModel.setTableName(props.getStr("table.tableName"));
         generModel.setModules(props.getStr("table.modules"));
         generModel.setPrefix(props.getStr("table.prefix"));

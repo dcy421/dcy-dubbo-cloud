@@ -1,9 +1,11 @@
 package com.dcy.ganerate.biz;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.querys.MySqlQuery;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import com.dcy.db.base.model.BaseModel;
@@ -56,7 +58,8 @@ public class SimpleGenerator {
         dsc.setUrl(generModel.getDbUrl())
             .setDriverName(generModel.getDriverName())
             .setUsername(generModel.getUsername())
-            .setPassword(generModel.getPassword());
+            .setPassword(generModel.getPassword())
+            .setDbQuery(new MySqlQuery());
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -87,7 +90,7 @@ public class SimpleGenerator {
             .setSuperEntityClass(BaseModel.class)
             .setSuperServiceClass("com.dcy.db.base.service.BaseService")
             .setSuperServiceImplClass("com.dcy.db.base.service.impl.BaseServiceImpl")
-
+                // 默认生成所有的表
             .setInclude(generModel.getTableName().split(","))
             .setControllerMappingHyphenStyle(true)
             .setEntityColumnConstant(true)
@@ -118,28 +121,27 @@ public class SimpleGenerator {
         InjectionConfig cfg = new InjectionConfig() {
             @Override
             public void initMap() {
-                Map<String, Object> map = new HashMap<String, Object>();
-                map.put("modulesName", generModel.getModulesName());
-                map.put("modulesApi", generModel.getModules());
-                map.put("modules", generModel.getModulesUp());
-                this.setMap(map);
+
             }
         };
         List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
-        focList.add(new FileOutConfig("/vue/manage-element.vue.ftl") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输入文件名称
-                return generModel.getPack() + "//vue//" + generModel.getModules() + "//" + generModel.getModules() + "-manage.vue";
-            }
-        });
-        focList.add(new FileOutConfig("/vue/vue.js.ftl") {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输入文件名称
-                return generModel.getPack() + "//vue//" + generModel.getModules() + "//" + generModel.getModules() + ".js";
-            }
-        });
+        String[] tableNames = generModel.getTableName().split(",");
+        for (int i = 0; i < tableNames.length; i++) {
+            focList.add(new FileOutConfig("/vue/manage-element.vue.ftl") {
+                @Override
+                public String outputFile(TableInfo tableInfo) {
+                    // 自定义输入文件名称
+                    return generModel.getPack() + "//vue//" + StrUtil.lowerFirst(tableInfo.getEntityName()) + "//" + StrUtil.lowerFirst(tableInfo.getEntityName()) + "-manage.vue";
+                }
+            });
+            focList.add(new FileOutConfig("/vue/vue.js.ftl") {
+                @Override
+                public String outputFile(TableInfo tableInfo) {
+                    // 自定义输入文件名称
+                    return generModel.getPack() + "//vue//" + StrUtil.lowerFirst(tableInfo.getEntityName()) + "//" + StrUtil.lowerFirst(tableInfo.getEntityName()) + ".js";
+                }
+            });
+        }
         cfg.setFileOutConfigList(focList);
         mpg.setCfg(cfg);
     }
